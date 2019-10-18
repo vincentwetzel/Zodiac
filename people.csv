@@ -59,7 +59,7 @@ Derek Brown,26,May,1,Gemini,Air,Mutable,kinky switch,TRUE,FALSE,FALSE
 Rudy Guiliani,28,May,1,Gemini,Air,Mutable,kinky switch,TRUE,FALSE,FALSE
 Sean O'Donnell,28,May,1,Gemini,Air,Mutable,kinky switch,FALSE,TRUE,FALSE
 Dominique Wetzel,31,May,1,Gemini,Air,Mutable,kinky switch,FALSE,FALSE,FALSE
-Vincent Wetzel,1,June,1,Gemini,Air,Mutable,kinky switch,TRUE,TRUE,FALSE
+Vincent Wetzel,1,June,1993,Gemini,Air,Mutable,kinky switch,TRUE,TRUE,FALSE
 Tom Holland,1,June,1,Gemini,Air,Mutable,kinky switch,FALSE,TRUE,FALSE
 Freddie Pearson,6,June,1,Gemini,Air,Mutable,kinky switch,FALSE,TRUE,FALSE
 Sarah Clark,7,June,1,Gemini,Air,Mutable,kinky switch,TRUE,FALSE,FALSE
@@ -120,7 +120,7 @@ Chadwick Hamilton Fairbanks III,26,August,1,Virgo,Earth,Mutable,power switch,FAL
 Ben Jordan,27,August,1,Virgo,Earth,Mutable,power switch,FALSE,TRUE,FALSE
 Caled Wood-Peterson,28,August,1,Virgo,Earth,Mutable,power switch,TRUE,TRUE,FALSE
 Kaden Madson,30,August,1,Virgo,Earth,Mutable,power switch,TRUE,FALSE,FALSE
-Mark Hickey,1,September,1,Virgo,Earth,Mutable,power switch,FALSE,TRUE,FALSE
+Mark Hickey,1,September,1995,Virgo,Earth,Mutable,power switch,FALSE,TRUE,FALSE
 Luke Searle,2,September,1,Virgo,Earth,Mutable,power switch,TRUE,FALSE,FALSE
 Shane Brock,2,September,1,Virgo,Earth,Mutable,power switch,TRUE,FALSE,FALSE
 Mike Trip,6,September,1,Virgo,Earth,Mutable,power switch,TRUE,FALSE,FALSE
@@ -237,3 +237,11 @@ Martin Van Buren,5,December,1782,Sagittarius,Fire,Mutable,soft top,TRUE,FALSE,TR
 Woodrow Wilson,28,December,1856,Capricorn,Earth,Cardinal,kinky top,TRUE,FALSE,TRUE
 Andrew Johnson,29,December,1808,Capricorn,Earth,Cardinal,kinky top,TRUE,FALSE,TRUE
 Hailey Ann LaBounty,6,October,1998,Libra,Air,Cardinal,soft switch,FALSE,FALSE,TRUE
+Frederick Douglass,14,February,1818,Aquarius,Air,Fixed,soft bottom,TRUE,TRUE,TRUE
+Alex Lange,3,March,2001,Pisces,Water,Mutable,soft switch,FALSE,TRUE,FALSE
+Cameron Dallas,8,September,1994,Virgo,Earth,Mutable,power switch,FALSE,TRUE,FALSE
+Chelsea Clinton,27,February,1980,Pisces,Water,Mutable,soft switch,TRUE,FALSE,FALSE
+Brandon Cole Bailey,16,October,1995,Libra,Air,Cardinal,soft switch,FALSE,TRUE,FALSE
+Whoopi Goldberg,13,November,1995,Scorpio,Water,Fixed,kinky top,TRUE,FALSE,FALSE
+Justin Bieber,1,March,1994,Pisces,Water,Mutable,soft switch,FALSE,TRUE,FALSE
+Edmond Miniatt,6,October,1990,Libra,Air,Cardinal,soft switch,FALSE,FALSE,FALSE

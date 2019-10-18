@@ -1,9 +1,14 @@
+import logging, sys
+
+logging.basicConfig(stream=sys.stderr,
+                    level=logging.CRITICAL)  # use logging.DEBUG for testing, logging.CRITICAL for runtime
+# https://docs.python.org/3/library/logging.html#levels
+
 import csv
-from datetime import timedelta, date
+import datetime
+from collections import defaultdict
 
-# TODO: Convert all Zodiac types to a Zodiac object.
-
-people_by_birthday = dict()
+people_by_months_dict = defaultdict(list)
 
 zodiac_symbols = {
     "Capricorn": "Sea-Goat (Goat-Fish hybrid)",
@@ -122,39 +127,86 @@ zodiac_descriptions = {
 
 
 def main():
-    """
-    for sign in zodiac_sign_ranges.keys():
-        print("----------\n" + sign + "\n----------")
-        for day in zodiac_sign_ranges[sign]:
-            print(day.strftime("%B %d,%Y"))
-    """
-
+    # Initialize people data
     init_people_from_csv()
-    for person in people_by_birthday.keys():
-        print(person + ": " + people_by_birthday[person].strftime("%B %d, %Y"))
 
-    # TODO: MENU:
-    # TODO: 1. Look up a person (print name, sign, element, description, etc.)
-    # TODO: 2. Add a new person
-    # TODO: 3. Look up a sign (print date, element, description, etc.)
-    # TODO: 4. Play a guessing game for signs and dates
-    # TODO: 0. Exit
+    while True:
+        user_input = get_int_input(
+            "1. Look up a person."
+            "\n2. Add a new person."
+            "\n3. Look up a sign, symbol, date, or element."
+            "\n4. Play a guessing game for signs and dates."
+            "\n0. Exit."
+            "\nPick an option:")
+        if user_input == 1:
+            person_found = False
+            # Look up a person
+            user_input = input("Enter a name and I will search the database for them: ").strip()
+            for key, val in people_by_months_dict.items():
+                logging.debug("Searching in key (month): " + str(key))
+                for zodiac_person in val:
+                    logging.debug("Comparing to person: " + zodiac_person.name)
+                    if zodiac_person.name == user_input:
+                        person_found = True
+                        if zodiac_person.president == True:
+                            print("NAME: President " + zodiac_person.name)
+                        else:
+                            print("NAME: " + zodiac_person.name)
+                        print("Birthday: " + zodiac_person.birthday.strftime("%d %B, %Y (%A)"))
+                        if zodiac_person.political:
+                            print("This person is political.")
+                        else:
+                            print("This person is not political.")
+                        # TODO: Continue here
+                        """
+                        self.sign = get_sign(self.birthday)
+                        self.elment = get_element(self.sign[0])
+                        self.quality = get_quality(self.sign[0])
+                        self.gay_position = zodiac_gay_position[self.sign[0]]
+                        """
+                        break
+                    if person_found:
+                        break
+            if not person_found:
+                print("That person is not in my database")
+        elif user_input == 2:
+            # TODO: Continue here.
+            pass
+        elif user_input == 3:
+            pass
+        elif user_input == 4:
+            pass
+        elif user_input == 0:
+            break
+        else:
+            pass
 
 
 def init_people_from_csv():
-    fieldnames_for_csv = ["Name", "Day", "Month", "Year", "Sign", "Element"]
     with open("people.csv", 'r', newline='') as f:
-        reader = csv.DictReader(f, fieldnames=fieldnames_for_csv)
-        next(reader)  # Skip over headers
+        reader = csv.DictReader(f)
+        # fieldnames_for_csv = next(reader)  # Skip over headers
         for row in reader:
-            people_by_birthday[row["Name"]] = date(int(row["Year"]), month_to_int(row["Month"]), int(row["Day"]))
+            people_by_months_dict[row["Month"]].append(ZodiacPerson(row["Name"],
+                                                                    datetime.date(int(row["Year"]),
+                                                                                  month_to_int(row["Month"]),
+                                                                                  int(row["Day"])),
+                                                                    bool(row["Political"]),
+                                                                    bool(row["Hottie"]),
+                                                                    bool(row["President"])
+                                                                    ))
+            # people_by_months_dict[row["Name"]] = date(int(row["Year"]), month_to_int(row["Month"]), int(row["Day"]))
 
 
-def date_range(date1, date2):
-    # TODO: Document this
-    # TODO: rename this
+def yield_dates_in_range(date1, date2):
+    """
+    Yields data objects within a range.
+    :param date1: Date object of the starting date
+    :param date2: Date object of the ending date
+    :return: None, yields date objects within this range
+    """
     for n in range(int((date2 - date1).days) + 1):
-        yield date1 + timedelta(n)/
+        yield date1 + timedelta(n)
 
 
 def month_to_int(month):
@@ -255,18 +307,64 @@ def get_sign(date_obj):
     return tup
 
 
+def get_quality(sign):
+    """
+    Helper method to get a quality for a Zodiac sign.
+    :param sign: The sign we want the quality for.
+    :return: The quality
+    """
+    for key, val in zodiac_qualities.items():
+        if val == sign:
+            return key
+
+
+def get_element(sign):
+    """
+    Helper method to get a element for a Zodiac sign.
+    :param sign: The sign we want the element for.
+    :return: The element
+    """
+    for key, val in zodiac_elements.items():
+        if val == sign:
+            return key
+
+
+def get_int_input(query_str):
+    """
+    Prompt the user for an integer input and only continue once they've given a valid input.
+    :param query_str:   The prompt to the user.
+    :return:    An integer type that the user has entered.
+    """
+    while True:
+        try:
+            return int(input(query_str))
+        except ValueError:
+            print("That didn't work. Try again.")
+
+
 class ZodiacPerson:
+    """
+    A class to hold data about an individual and their Zodiac info.
+    """
+
     def __init__(self, name, birthday_date, political=False, hottie=False, president=False):
-        # TODO: Documentation
+        """
+        Initializes a Zodiac Object.
+        :param name: The name of the person.
+        :param birthday_date: Their birthday as a Date Object.
+        :param political: Whether or not this person is politically involved.
+        :param hottie: Whether or not this person is a hottie.
+        :param president: Whether or not this person is a president.
+        """
         self.name = name
         self.birthday = birthday_date
-        self.political = political
-        self.hottie = hottie
-        self.president = president
-        # self.sign = # TODO finish this
-        # self.element = # TODO finish this
-        # self.quality = # TODO finish this
-        # self.gay_position = # TODO finish this
+        self.political = bool(political)
+        self.hottie = bool(hottie)
+        self.president = bool(president)
+        self.sign = get_sign(self.birthday)
+        self.elment = get_element(self.sign[0])
+        self.quality = get_quality(self.sign[0])
+        self.gay_position = zodiac_gay_position[self.sign[0]]
 
 
 if __name__ == "__main__":
