@@ -6,6 +6,7 @@ logging.basicConfig(stream=sys.stderr,
 
 import csv
 import datetime
+import calendar
 from collections import defaultdict
 
 people_by_months_dict = defaultdict(list)
@@ -132,7 +133,8 @@ def main():
 
     while True:
         user_input = get_int_input(
-            "1. Look up a person."
+            "\nChoose an option:"
+            "\n1. Look up a person."
             "\n2. Add a new person."
             "\n3. Look up a sign, symbol, date, or element."
             "\n4. Play a guessing game for signs and dates."
@@ -149,24 +151,21 @@ def main():
                     if zodiac_person.name == user_input:
                         person_found = True
                         if zodiac_person.president == True:
-                            print("NAME: President " + zodiac_person.name)
+                            print("\nNAME: President " + zodiac_person.name)
                         else:
-                            print("NAME: " + zodiac_person.name)
-                        print("Birthday: " + zodiac_person.birthday.strftime("%d %B, %Y (%A)"))
-                        if zodiac_person.political:
-                            print("This person is political.")
-                        else:
-                            print("This person is not political.")
-                        # TODO: Continue here
-                        """
-                        self.sign = get_sign(self.birthday)
-                        self.elment = get_element(self.sign[0])
-                        self.quality = get_quality(self.sign[0])
-                        self.gay_position = zodiac_gay_position[self.sign[0]]
-                        """
+                            print("\nNAME: " + zodiac_person.name)
+                        print("BIRTHDAY: " + zodiac_person.birthday.strftime(
+                            "%d %B, %Y (%A)") + ". This person is " + str(
+                            diff_between_two_dates(zodiac_person.birthday, datetime.date.today())[0]) + " years old.")
+                        print("SIGN: " + zodiac_person.sign[0])
+                        print("ELEMENT: " + zodiac_person.element)
+                        print("QUALITY: " + zodiac_person.quality)
+                        print("GAY POSITION: " + zodiac_person.gay_position)
                         break
                     if person_found:
                         break
+                if person_found:
+                    break
             if not person_found:
                 print("That person is not in my database")
         elif user_input == 2:
@@ -191,11 +190,15 @@ def init_people_from_csv():
                                                                     datetime.date(int(row["Year"]),
                                                                                   month_to_int(row["Month"]),
                                                                                   int(row["Day"])),
-                                                                    bool(row["Political"]),
-                                                                    bool(row["Hottie"]),
-                                                                    bool(row["President"])
+                                                                    row["Political"] in ["True", "TRUE"],
+                                                                    row["Hottie"] in ["True", "TRUE"],
+                                                                    row["President"] in ["True", "TRUE"]
                                                                     ))
-            # people_by_months_dict[row["Name"]] = date(int(row["Year"]), month_to_int(row["Month"]), int(row["Day"]))
+    logging.debug("Printing people_by_months_dict after it has been initialized...")
+    for month in people_by_months_dict:
+        logging.debug("MONTH:" + month)
+        for zodiac_person in people_by_months_dict[month]:
+            logging.debug("PERSON:" + zodiac_person.name)
 
 
 def yield_dates_in_range(date1, date2):
@@ -206,7 +209,42 @@ def yield_dates_in_range(date1, date2):
     :return: None, yields date objects within this range
     """
     for n in range(int((date2 - date1).days) + 1):
-        yield date1 + timedelta(n)
+        yield date1 + datetime.timedelta(n)
+
+
+def diff_between_two_dates(starting_date, ending_date):
+    """
+    Finds the number of days between one day and another
+    :param starting_date: Starting Date object
+    :param ending_date: Ending Date object
+    :return: A tuple of the difference in the form (years, months, days)
+    """
+    if (ending_date - starting_date).days < 0:
+        raise Exception("The starting date must be before  the ending date")
+
+    # Calculate days
+    if ending_date.day >= starting_date.day:
+        days = ending_date.day - starting_date.day
+    else:
+        days_in_month = calendar.monthrange(starting_date.year, starting_date.month)[1]
+        date_temp = starting_date + datetime.timedelta(
+            days=days_in_month)  # calendar.monthrange(starting_date.year, starting_date.month)[1]
+        days = (ending_date - date_temp).days
+
+    # Calculate months
+    if ending_date.month >= starting_date.month:
+        months = ending_date.month - starting_date.month
+    else:
+        months = (ending_date.month + 12) - starting_date.month
+        if ending_date.day < starting_date.day:
+            months = months - 1
+
+    # Calculate years
+    years = ending_date.year - starting_date.year
+    if ending_date.month < starting_date.month:
+        years = years - 1
+
+    return (years, months, days)
 
 
 def month_to_int(month):
@@ -313,9 +351,11 @@ def get_quality(sign):
     :param sign: The sign we want the quality for.
     :return: The quality
     """
-    for key, val in zodiac_qualities.items():
-        if val == sign:
-            return key
+    for quality in zodiac_qualities:
+        for zodiac_sign in zodiac_qualities[quality]:
+            if zodiac_sign == sign:
+                return quality
+    raise Exception("No element was found for " + str(sign))
 
 
 def get_element(sign):
@@ -324,9 +364,11 @@ def get_element(sign):
     :param sign: The sign we want the element for.
     :return: The element
     """
-    for key, val in zodiac_elements.items():
-        if val == sign:
-            return key
+    for element in zodiac_elements:
+        for zodiac_sign in zodiac_elements[element]:
+            if zodiac_sign == sign:
+                return element
+    raise Exception("No element was found for " + str(sign))
 
 
 def get_int_input(query_str):
@@ -362,7 +404,7 @@ class ZodiacPerson:
         self.hottie = bool(hottie)
         self.president = bool(president)
         self.sign = get_sign(self.birthday)
-        self.elment = get_element(self.sign[0])
+        self.element = get_element(self.sign[0])
         self.quality = get_quality(self.sign[0])
         self.gay_position = zodiac_gay_position[self.sign[0]]
 
