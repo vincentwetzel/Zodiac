@@ -1,15 +1,99 @@
 import logging, sys
 
 logging.basicConfig(stream=sys.stderr,
-                    level=logging.CRITICAL)  # use logging.DEBUG for testing, logging.CRITICAL for runtime
+                    level=logging.DEBUG)  # use logging.DEBUG for testing, logging.CRITICAL for runtime
 # https://docs.python.org/3/library/logging.html#levels
 
 import csv
 import datetime
 import calendar
 from collections import defaultdict
+import random
+import shutil
 
-people_by_months_dict = defaultdict(list)
+zodiac_sign_descriptions = {
+    "Capricorn": "-Strengths: Responsible, disciplined, self-control, good managers"
+                 "\n-Weaknesses: Know-it-all, unforgiving, condescending, expecting the worst"
+                 "\n-Capricorn likes: Family, tradition, music, understated status, quality craftsmanship"
+                 "\n-Capricorn dislikes: Almost everything at some point"
+                 "\n-Description: Capricorn is a sign that represents time and responsibility, and its representatives are traditional and often very serious by nature."
+                 "\n-These individuals possess an inner state of independence that enables significant progress both in their personal and professional lives."
+                 "\nThey are masters of self-control and have the ability to lead the way, make solid and realistic plans, and manage many people who work for them at any time."
+                 "\nThey will learn from their mistakes and get to the top based solely on their experience and expertise.",
+    "Aquarius": "-Strengths: Progressive, original, independent, humanitarian"
+                "\n-Weaknesses: Runs from emotional expression, temperamental, uncompromising, aloof"
+                "\n-Aquarius likes: Fun with friends, helping others, fighting for causes, intellectual conversation, a good listener"
+                "\n-Aquarius dislikes: Limitations, broken promises, being lonely, dull or boring situations, people who disagree with them"
+                "\n-Aquarius-born are shy and quiet, but on the other hand they can be eccentric and energetic. However, in both cases, they are deep thinkers and highly intellectual people who love helping others. They are able to see without prejudice, on both sides, which makes them people who can easily solve problems."
+                "\n-Description: Although they can easily adapt to the energy that surrounds them, Aquarius-born have a deep need to be some time alone and away from everything, in order to restore power. People born under the Aquarius sign, look at the world as a place full of possibilities.",
+    "Pisces": "-Strengths: Compassionate, artistic, intuitive, gentle, wise, musical"
+              "\n-Weaknesses: Fearful, overly trusting, sad, desire to escape reality, can be a victim or a martyr"
+              "\n-Pisces likes: Being alone, sleeping, music, romance, visual media, swimming, spiritual themes"
+              "\n-Pisces dislikes: Know-it-all, being criticized, the past coming back to haunt, cruelty of any kind"
+              "\n-Description: Pisces are very friendly, so they often find themselves in a company of very different people. Pisces are selfless, they are always willing to help others, without hoping to get anything back.",
+    "Aries": "-Strengths: Courageous, determined, confident, enthusiastic, optimistic, honest, passionate"
+             "\n-Weaknesses: Impatient, moody, short-tempered, impulsive, aggressive"
+             "\n-Aries likes: Comfortable clothes, taking on leadership roles, physical challenges, individual sports"
+             "\n-Aries dislikes: Inactivity, delays, work that does not use one's talents"
+             "\n-Description: As the first sign in the zodiac, the presence of Aries always marks the beginning of something energetic and turbulent. They are continuously looking for dynamic, speed and competition, always being the first in everything - from work to social gatherings. Thanks to its ruling planet Mars and the fact it belongs to the element of Fire (just like Leo and Sagittarius), Aries is one of the most active zodiac signs. It is in their nature to take action, sometimes before they think about it well.",
+    "Taurus": "-Strengths: Reliable, patient, practical, devoted, responsible, stable"
+              "\n-Weaknesses: Stubborn, possessive, uncompromising"
+              "\n-Taurus likes: Gardening, cooking, music, romance, high quality clothes, working with hands"
+              "\n-Taurus dislikes: Sudden changes, complications, insecurity of any kind, synthetic fabrics"
+              "\n-Description: Practical and well-grounded, Taurus is the sign that harvests the fruits of labor."
+              "\nThey feel the need to always be surrounded by love and beauty, turned to the material world, hedonism, and physical pleasures."
+              "\nPeople born with their Sun in Taurus are sensual and tactile, considering touch and taste the most important of all senses."
+              "\nStable and conservative, this is one of the most reliable signs of the zodiac, ready to endure and stick to their choices until they reach the point of personal satisfaction.",
+    "Gemini": "-Strengths: Gentle, affectionate, curious, adaptable, ability to learn quickly and exchange ideas"
+              "\n-Weaknesses: Nervous, inconsistent, indecisive"
+              "\n-Gemini likes: Music, books, magazines, chats with nearly anyone, short trips around the town"
+              "\n-Gemini dislikes: Being alone, being confined, repetition and routine"
+              "\n-Description: Expressive and quick-witted, Gemini represents two different personalities in one and you will never be sure which one you will face."
+              "\nThey are sociable, communicative and ready for fun, with a tendency to suddenly get serious, thoughtful and restless."
+              "\nThey are fascinated with the world itself, extremely curious, with a constant feeling that there is not enough time to experience everything they want to see.",
+    "Cancer": "-Strengths: Tenacious, highly imaginative, loyal, emotional, sympathetic, persuasive"
+              "\n-Weaknesses: Moody, pessimistic, suspicious, manipulative, insecure"
+              "\n-Cancer likes: Art, home-based hobbies, relaxing near or in water, helping loved ones, a good meal with friends"
+              "\n-Cancer dislikes: Strangers, any criticism of Mom, revealing of personal life"
+              "\n-Description: Deeply intuitive and sentimental, Cancer can be one of the most challenging zodiac signs to get to know. They are very emotional and sensitive, and care deeply about matters of the family and their home. Cancer is sympathetic and attached to people they keep close. Those born with their Sun in Cancer are very loyal and able to empathize with other people's pain and suffering.",
+    "Leo": "-Strengths: Creative, passionate, generous, warm-hearted, cheerful, humorous"
+           "\n-Weaknesses: Arrogant, stubborn, self-centered, lazy, inflexible"
+           "\n-Leo likes: Theater, taking holidays, being admired, expensive things, bright colors, fun with friends"
+           "\n-Leo dislikes: Being ignored, facing difficult reality, not being treated like a king or queen"
+           "\n-Description: People born under the sign of Leo are natural born leaders."
+           "\nThey are dramatic, creative, self-confident, dominant and extremely difficult to resist, able to achieve anything they want to in any area of life they commit to."
+           "\nThere is a specific strength to a Leo and their \"king of the jungle\" status."
+           "\nLeo often has many friends for they are generous and loyal."
+           "\nSelf-confident and attractive, this is a Sun sign capable of uniting different groups of people and leading them as one towards a shared cause, and their healthy sense of humor makes collaboration with other people even easier.",
+    "Virgo": "-Strengths: Loyal, analytical, kind, hardworking, practical"
+             "\n-Weaknesses: Shyness, worry, overly critical of self and others, all work and no play"
+             "\n-Virgo likes: Animals, healthy food, books, nature, cleanliness"
+             "\n-Virgo dislikes: Rudeness, asking for help, taking center stage"
+             "\n-Description: Virgos are always paying attention to the smallest details and their deep sense of humanity makes them one of the most careful signs of the zodiac. Their methodical approach to life ensures that nothing is left to chance, and although they are often tender, their heart might be closed for the outer world. This is a sign often misunderstood, not because they lack the ability to express, but because they won’t accept their feelings as valid, true, or even relevant when opposed to reason. The symbolism behind the name speaks well of their nature, born with a feeling they are experiencing everything for the first time.",
+    "Libra": "-Strengths: Cooperative, diplomatic, gracious, fair-minded, social"
+             "\n-Weaknesses: Indecisive, avoids confrontations, will carry a grudge, self-pity"
+             "\n-Libra likes: Harmony, gentleness, sharing with others, the outdoors"
+             "\n-Libra dislikes: Violence, injustice, loudmouths, conformity"
+             "\n-Description: People born under the sign of Libra are peaceful, fair, and they hate being alone."
+             "\nPartnership is very important for them, as their mirror and someone giving them the ability to be the mirror themselves."
+             "\nThese individuals are fascinated by balance and symmetry, they are in a constant chase for justice and equality, realizing through life that the only thing that should be truly important to themselves in their own inner core of personality."
+             "\nThis is someone ready to do nearly anything to avoid conflict, keeping the peace whenever possible",
+    "Scorpio": "-Strengths: Resourceful, brave, passionate, stubborn, a true friend"
+               "\n-Weaknesses: Distrusting, jealous, secretive, violent"
+               "\n-Scorpio likes: Truth, facts, being right, longtime friends, teasing, a grand passion"
+               "\n-Scorpio dislikes: Dishonesty, revealing secrets, passive people"
+               "\n-Descrption: Scorpio-born are passionate and assertive people."
+               "\nThey are determined and decisive, and will research until they find out the truth."
+               "\nScorpio is a great leader, always aware of the situation and also features prominently in resourcefulness.",
+    "Sagittarius": "-Strengths: Generous, idealistic, great sense of humor"
+                   "\n-Weaknesses: Promises more than can deliver, very impatient, will say anything no matter how undiplomatic"
+                   "\n-Sagittarius likes: Freedom, travel, philosophy, being outdoors"
+                   "\n-Sagittarius dislikes: Clingy people, being constrained, off-the-wall theories, details"
+                   "\n-Description: Curious and energetic, Sagittarius is one of the biggest travelers among all zodiac signs."
+                   "\nTheir open mind and philosophical view motivates them to wander around the world in search of the meaning of life."
+                   "\nSagittarius is extrovert, optimistic and enthusiastic, and likes changes."
+                   "\nSagittarius-born are able to transform their thoughts into concrete actions and they will do anything to achieve their goals."
+}
 
 zodiac_symbols = {
     "Capricorn": "Sea-Goat (Goat-Fish hybrid)",
@@ -34,16 +118,83 @@ zodiac_elements = {
 }
 
 zodiac_element_descriptions = {
-    "Water": "Water signs are exceptionally emotional and ultra-sensitive. They are highly intuitive and they can be as mysterious as the ocean itself. Water signs love profound conversations and intimacy. They rarely do anything openly and are always there to support their loved ones. The Water Signs are: Cancer, Scorpio and Pisces.",
-    "Fire": "Fire signs tend to be passionate, dynamic, and temperamental. They get angry quickly, but they also forgive easily. They are adventurers with immense energy. They are physically very strong and are a source of inspiration for others. Fire signs are intelligent, self-aware, creative and idealistic people, always ready for action. The Fire Signs are: Aries, Leo and Sagittarius.",
-    "Earth": "Earth signs are “grounded” and the ones that bring us down to earth. They are mostly conservative and realistic, but they can also be very emotional. They are connected to our material reality and can be turned to material goods. They are practical, loyal and stable and they stick by their people through hard times. The Earth Signs are: Taurus, Virgo and Capricorn.",
-    "Air": "Air signs are rational, social, and love communication and relationships with other people. They are thinkers, friendly, intellectual, communicative and analytical. They love philosophical discussions, social gatherings and good books. They enjoy giving advice, but they can also be very superficial. The Air Signs are: Gemini, Libra and Aquarius."
+    "Water": "Water signs are exceptionally emotional and ultra-sensitive."
+             "\nThey are highly intuitive and they can be as mysterious as the ocean itself."
+             "\nWater signs love profound conversations and intimacy."
+             "\nThey rarely do anything openly and are always there to support their loved ones."
+             "\nThe Water Signs are: Cancer, Scorpio and Pisces.",
+    "Fire": "Fire signs tend to be passionate, dynamic, and temperamental."
+            "\nThey get angry quickly, but they also forgive easily."
+            "\nThey are adventurers with immense energy."
+            "\nThey are physically very strong and are a source of inspiration for others."
+            "\nFire signs are intelligent, self-aware, creative and idealistic people, always ready for action."
+            "\nThe Fire Signs are: Aries, Leo and Sagittarius.",
+    "Earth": "Earth signs are “grounded” and the ones that bring us down to earth."
+             "\nThey are mostly conservative and realistic, but they can also be very emotional."
+             "\nThey are connected to our material reality and can be turned to material goods."
+             "\nThey are practical, loyal and stable and they stick by their people through hard times."
+             "\nThe Earth Signs are: Taurus, Virgo and Capricorn.",
+    "Air": "Air signs are rational, social, and love communication and relationships with other people."
+           "\nThey are thinkers, friendly, intellectual, communicative and analytical."
+           "\nThey love philosophical discussions, social gatherings and good books."
+           "\nThey enjoy giving advice, but they can also be very superficial."
+           "\nThe Air Signs are: Gemini, Libra and Aquarius."
 }
 
 zodiac_qualities = {
     "Cardinal": ["Aries", "Cancer", "Libra", "Capricorn"],
     "Mutable": ["Gemini", "Virgo", "Sagittarius", "Pisces"],
     "Fixed": ["Taurus", "Leo", "Scorpio", "Aquarius"]
+}
+
+zodiac_quality_descriptions = {
+    "Cardinal": "Cardinal Signs are the initiators of the zodiac."
+                "\nThey are also found at key jumping-off points on the chart wheel, specifically the Ascendant, Medium Coeli (M.C. or Midheaven), Descendant and Imum Coeli (I.C.)."
+                "\nIndividuals possessing a Cardinal Quality like to get things going."
+                "\nThey are active, quick and ambitious."
+                "\nMany projects get started, thanks to Cardinal initiative, although a good deal of them are never finished."
+                "\nThat’s because Cardinal folks are much fonder of starting things than finishing them."
+                "\n\nYou won’t find a Cardinal person slacking off."
+                "\nThese people are full of vim and vigor and possess a drive and ambition that is unmistakable."
+                "\nEnthusiasm and a zest for life fill the Cardinal individual."
+                "\nSome might perceive this rampant energy as domineering, and, at times, it can be."
+                "\nCardinal people can easily forget about the rest of the pack when they are busily focusing on their own endeavors."
+                "\nEven so, their energetic spirit often wins the day."
+                "\n\nCardinal folks are clever and want to win."
+                "\nThey love to start things, and whether they finish them or not, there’s always a lot going on."
+                "\nNaysayers who find them to be too self-centered will simply have to watch (and marvel) as they speed by!",
+    "Mutable": "Mutable Signs know how to go with the flow."
+               "\nThey are adaptable and flexible and can change their form of expression to whatever a situation requires."
+               "\nStanding their ground is of little import to Mutable folks."
+               "\nThese people would much rather conform to the norm, so long as their doing so will help the greater good."
+               "\nLuckily, Mutable individuals are versatile and find it quite easy to change."
+               "\nConsider them the chameleons of the zodiac, since they can take on varied personae."
+               "\n\nMutable people are blessed with a tremendous resourcefulness."
+               "\nTalk about making lemonade out of lemons!"
+               "\nThey know how to squeeze that last drop of juice and make things better in the process."
+               "\nThose influenced by a Mutable Quality in their horoscope also enjoy learning, play fair and are diplomatic and well-liked by others."
+               "\nTo their further credit, they are sharp, sympathetic and can see (via a sixth sense?) the essential elements of a situation."
+               "\nAt times, however, their desire to please everyone can get them into hot water."
+               "\nThey may come across as wishy-washy, inconsistent and downright duplicitous."
+               "\nAll this in the name of aiming to please!"
+               "\n\nThe beauty of mutability is that those possessing it are flexible, versatile and highly resourceful."
+               "\nThese folks are quick to help others and are selfless in the process."
+               "\nWhile they may occasionally stretch themselves to the breaking point, they know how to bounce back.",
+    "Fixed": "Fixed Signs understand that steadiness is the key."
+             "\nThose influenced by this Quality are happy to forge ahead with their projects, calmly working away until they have achieved their objectives."
+             "\nThis is no struggle for Fixed folks, rather it’s what makes them tick."
+             "\nThese individuals are stable, determined and resolute."
+             "\nThey want to get to the finish line and have the persistence and ability to concentrate, characteristics which will get them there."
+             "\n\nThere is no lack of confidence in Fixed individuals."
+             "\nSelf-reliance could be a Fixed person’s middle name."
+             "\nThose possessed of a Fixed nature are powerful, yet purposeful."
+             "\nThere are no wasted motions here: Fixed folks move patiently and steadily toward their goals."
+             "\nThey are also steady and reliable and always remember those who helped them out."
+             "\nConversely, those born under a Fixed sign can at times be stubborn, my-way-or-the-highway folks."
+             "\nThey may have a tendency to get stuck in their ways and to believe that they are always right."
+             "\n\nThose influenced by a Fixed Quality are determined, reliable and persistent."
+             "They have great strength, and strength of purpose, and love to get the job done."
+             "So what if they refuse to budge? They get results."
 }
 
 zodiac_gay_position = {
@@ -61,70 +212,7 @@ zodiac_gay_position = {
     "Sagittarius": "soft top"
 }
 
-zodiac_descriptions = {
-    "Capricorn": "-Strengths: Responsible, disciplined, self-control, good managers"
-                 "\nWeaknesses: Know-it-all, unforgiving, condescending, expecting the worst"
-                 "\nCapricorn likes: Family, tradition, music, understated status, quality craftsmanship"
-                 "\nCapricorn dislikes: Almost everything at some point"
-                 "\nDescription: Capricorn is a sign that represents time and responsibility, and its representatives are traditional and often very serious by nature. These individuals possess an inner state of independence that enables significant progress both in their personal and professional lives. They are masters of self-control and have the ability to lead the way, make solid and realistic plans, and manage many people who work for them at any time. They will learn from their mistakes and get to the top based solely on their experience and expertise.",
-    "Aquarius": "-Strengths: Progressive, original, independent, humanitarian"
-                "\nWeaknesses: Runs from emotional expression, temperamental, uncompromising, aloof"
-                "\nAquarius likes: Fun with friends, helping others, fighting for causes, intellectual conversation, a good listener"
-                "\nAquarius dislikes: Limitations, broken promises, being lonely, dull or boring situations, people who disagree with them"
-                "\nAquarius-born are shy and quiet, but on the other hand they can be eccentric and energetic. However, in both cases, they are deep thinkers and highly intellectual people who love helping others. They are able to see without prejudice, on both sides, which makes them people who can easily solve problems."
-                "\nDescription: Although they can easily adapt to the energy that surrounds them, Aquarius-born have a deep need to be some time alone and away from everything, in order to restore power. People born under the Aquarius sign, look at the world as a place full of possibilities.",
-    "Pisces": "-Strengths: Compassionate, artistic, intuitive, gentle, wise, musical"
-              "\nWeaknesses: Fearful, overly trusting, sad, desire to escape reality, can be a victim or a martyr"
-              "\nPisces likes: Being alone, sleeping, music, romance, visual media, swimming, spiritual themes"
-              "\nPisces dislikes: Know-it-all, being criticized, the past coming back to haunt, cruelty of any kind"
-              "\nDescription: Pisces are very friendly, so they often find themselves in a company of very different people. Pisces are selfless, they are always willing to help others, without hoping to get anything back.",
-    "Aries": "-Strengths: Courageous, determined, confident, enthusiastic, optimistic, honest, passionate"
-             "\nWeaknesses: Impatient, moody, short-tempered, impulsive, aggressive"
-             "\nAries likes: Comfortable clothes, taking on leadership roles, physical challenges, individual sports"
-             "\nAries dislikes: Inactivity, delays, work that does not use one's talents"
-             "\nDescription: As the first sign in the zodiac, the presence of Aries always marks the beginning of something energetic and turbulent. They are continuously looking for dynamic, speed and competition, always being the first in everything - from work to social gatherings. Thanks to its ruling planet Mars and the fact it belongs to the element of Fire (just like Leo and Sagittarius), Aries is one of the most active zodiac signs. It is in their nature to take action, sometimes before they think about it well.",
-    "Taurus": "-Strengths: Reliable, patient, practical, devoted, responsible, stable"
-              "\nWeaknesses: Stubborn, possessive, uncompromising"
-              "\nTaurus likes: Gardening, cooking, music, romance, high quality clothes, working with hands"
-              "\nTaurus dislikes: Sudden changes, complications, insecurity of any kind, synthetic fabrics"
-              "\nDescription: Practical and well-grounded, Taurus is the sign that harvests the fruits of labor. They feel the need to always be surrounded by love and beauty, turned to the material world, hedonism, and physical pleasures. People born with their Sun in Taurus are sensual and tactile, considering touch and taste the most important of all senses. Stable and conservative, this is one of the most reliable signs of the zodiac, ready to endure and stick to their choices until they reach the point of personal satisfaction.",
-    "Gemini": "-Strengths: Gentle, affectionate, curious, adaptable, ability to learn quickly and exchange ideas"
-              "\nWeaknesses: Nervous, inconsistent, indecisive"
-              "\nGemini likes: Music, books, magazines, chats with nearly anyone, short trips around the town"
-              "\nGemini dislikes: Being alone, being confined, repetition and routine"
-              "\nDescription: Expressive and quick-witted, Gemini represents two different personalities in one and you will never be sure which one you will face. They are sociable, communicative and ready for fun, with a tendency to suddenly get serious, thoughtful and restless. They are fascinated with the world itself, extremely curious, with a constant feeling that there is not enough time to experience everything they want to see.",
-    "Cancer": "Strengths: Tenacious, highly imaginative, loyal, emotional, sympathetic, persuasive"
-              "\nWeaknesses: Moody, pessimistic, suspicious, manipulative, insecure"
-              "\nCancer likes: Art, home-based hobbies, relaxing near or in water, helping loved ones, a good meal with friends"
-              "\nCancer dislikes: Strangers, any criticism of Mom, revealing of personal life"
-              "\nDescription: Deeply intuitive and sentimental, Cancer can be one of the most challenging zodiac signs to get to know. They are very emotional and sensitive, and care deeply about matters of the family and their home. Cancer is sympathetic and attached to people they keep close. Those born with their Sun in Cancer are very loyal and able to empathize with other people's pain and suffering.",
-    "Leo": "Strengths: Creative, passionate, generous, warm-hearted, cheerful, humorous"
-           "\nWeaknesses: Arrogant, stubborn, self-centered, lazy, inflexible"
-           "\nLeo likes: Theater, taking holidays, being admired, expensive things, bright colors, fun with friends"
-           "\nLeo dislikes: Being ignored, facing difficult reality, not being treated like a king or queen"
-           "\nDescription: People born under the sign of Leo are natural born leaders. They are dramatic, creative, self-confident, dominant and extremely difficult to resist, able to achieve anything they want to in any area of life they commit to. There is a specific strength to a Leo and their \"king of the jungle\" status. Leo often has many friends for they are generous and loyal. Self-confident and attractive, this is a Sun sign capable of uniting different groups of people and leading them as one towards a shared cause, and their healthy sense of humor makes collaboration with other people even easier.",
-    "Virgo": "-Strengths: Loyal, analytical, kind, hardworking, practical"
-             "\nWeaknesses: Shyness, worry, overly critical of self and others, all work and no play"
-             "\nVirgo likes: Animals, healthy food, books, nature, cleanliness"
-             "\nVirgo dislikes: Rudeness, asking for help, taking center stage"
-             "\nDescription: Virgos are always paying attention to the smallest details and their deep sense of humanity makes them one of the most careful signs of the zodiac. Their methodical approach to life ensures that nothing is left to chance, and although they are often tender, their heart might be closed for the outer world. This is a sign often misunderstood, not because they lack the ability to express, but because they won’t accept their feelings as valid, true, or even relevant when opposed to reason. The symbolism behind the name speaks well of their nature, born with a feeling they are experiencing everything for the first time.",
-    "Libra": "-Strengths: Cooperative, diplomatic, gracious, fair-minded, social"
-             "\nWeaknesses: Indecisive, avoids confrontations, will carry a grudge, self-pity"
-             "\nLibra likes: Harmony, gentleness, sharing with others, the outdoors"
-             "\nLibra dislikes: Violence, injustice, loudmouths, conformity"
-             "\nDescription: People born under the sign of Libra are peaceful, fair, and they hate being alone. Partnership is very important for them, as their mirror and someone giving them the ability to be the mirror themselves. These individuals are fascinated by balance and symmetry, they are in a constant chase for justice and equality, realizing through life that the only thing that should be truly important to themselves in their own inner core of personality. This is someone ready to do nearly anything to avoid conflict, keeping the peace whenever possible",
-    "Scorpio": "Strengths: Resourceful, brave, passionate, stubborn, a true friend"
-               "\nWeaknesses: Distrusting, jealous, secretive, violent"
-               "\nScorpio likes: Truth, facts, being right, longtime friends, teasing, a grand passion"
-               "\nScorpio dislikes: Dishonesty, revealing secrets, passive people"
-               "\nDescrption: Scorpio-born are passionate and assertive people. They are determined and decisive, and will research until they find out the truth. Scorpio is a great leader, always aware of the situation and also features prominently in resourcefulness.",
-    "Sagittarius": "-Strengths: Generous, idealistic, great sense of humor"
-                   "\nWeaknesses: Promises more than can deliver, very impatient, will say anything no matter how undiplomatic"
-                   "\nSagittarius likes: Freedom, travel, philosophy, being outdoors"
-                   "\nSagittarius dislikes: Clingy people, being constrained, off-the-wall theories, details"
-                   "\nDescription: Curious and energetic, Sagittarius is one of the biggest travelers among all zodiac signs. Their open mind and philosophical view motivates them to wander around the world in search of the meaning of life. Sagittarius is extrovert, optimistic and enthusiastic, and likes changes. "
-                   "\nSagittarius-born are able to transform their thoughts into concrete actions and they will do anything to achieve their goals."
-}
+people_by_months_dict = defaultdict(list)
 
 
 def main():
@@ -136,52 +224,57 @@ def main():
             "\nChoose an option:"
             "\n1. Look up a person."
             "\n2. Add a new person."
-            "\n3. Look up a sign, symbol, date, or element."
-            "\n4. Play a guessing game for signs and dates."
+            "\n3. Look up a sign's information"
+            "\n4. Look up a symbol"
+            "\n5. Look up an element."
+            "\n6. Look up a date."
+            "\n7. Play a guessing game for signs and dates."
             "\n0. Exit."
             "\nPick an option:")
         if user_input == 1:
-            person_found = False
-            # Look up a person
-            user_input = input("Enter a name and I will search the database for them: ").strip()
-            for key, val in people_by_months_dict.items():
-                logging.debug("Searching in key (month): " + str(key))
-                for zodiac_person in val:
-                    logging.debug("Comparing to person: " + zodiac_person.name)
-                    if zodiac_person.name == user_input:
-                        person_found = True
-                        if zodiac_person.president == True:
-                            print("\nNAME: President " + zodiac_person.name)
-                        else:
-                            print("\nNAME: " + zodiac_person.name)
-                        print("BIRTHDAY: " + zodiac_person.birthday.strftime(
-                            "%d %B, %Y (%A)") + ". This person is " + str(
-                            diff_between_two_dates(zodiac_person.birthday, datetime.date.today())[0]) + " years old.")
-                        print("SIGN: " + zodiac_person.sign[0])
-                        print("ELEMENT: " + zodiac_person.element)
-                        print("QUALITY: " + zodiac_person.quality)
-                        print("GAY POSITION: " + zodiac_person.gay_position)
-                        break
-                    if person_found:
-                        break
-                if person_found:
-                    break
-            if not person_found:
-                print("That person is not in my database")
+            # 1. Look up a person
+            print(get_person_info(input("Enter a name and I will search the database for them: ").strip()))
         elif user_input == 2:
-            # TODO: Continue here.
-            pass
+            # 2. Add a new person
+            add_new_person_to_zodiac_database()
         elif user_input == 3:
-            pass
+            # 3. Look up a sign's information"
+            print(get_sign_info(input(
+                "The signs of the Zodiac are Capricorn, Aquarius, Pisces, Aries, Taurus, Gemini, "
+                "Cancer, Leo, Virgo, Libra, Scorpio, Sagitarius."
+                "\nEnter the sign that you would like to know more about: ")))
         elif user_input == 4:
+            # 4. Look up a symbol
+            print(get_symbol_info(input(
+                "Enter a Zodiac sign and I will give you its symbol."
+                "\nYour options are:"
+                "\nCapricorn, Aquarius, Pisces, Aries, Taurus, Gemini, "
+                "Cancer, Leo, Virgo, Libra, Scorpio, Sagitarius: ")))
+        elif user_input == 5:
+            # 5. Look up an element.
+            get_element_info(input(
+                "Enter a Zodiac sign and I will give you its element."
+                "\nYour options are:"
+                "\nCapricorn, Aquarius, Pisces, Aries, Taurus, Gemini, "
+                "Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius: "))
+        elif user_input == 6:
+            # 6. Look up a date.
+            print(get_sign_for_date(
+                input("Enter a day of the year and I will give you its Zodiac information (e.g. January 1): ")))
+        elif user_input == 7:
+            # 7. Play a guessing game for signs and dates.
             pass
+            # TODO: Make a game
         elif user_input == 0:
+            # 0. Exit.
             break
         else:
-            pass
+            print("That is not an option. Try again.")
+    # --- Script End ---
 
 
 def init_people_from_csv():
+    global people_by_months_dict
     with open("people.csv", 'r', newline='') as f:
         reader = csv.DictReader(f)
         # fieldnames_for_csv = next(reader)  # Skip over headers
@@ -194,11 +287,116 @@ def init_people_from_csv():
                                                                     row["Hottie"] in ["True", "TRUE"],
                                                                     row["President"] in ["True", "TRUE"]
                                                                     ))
+    """
     logging.debug("Printing people_by_months_dict after it has been initialized...")
     for month in people_by_months_dict:
         logging.debug("MONTH:" + month)
         for zodiac_person in people_by_months_dict[month]:
             logging.debug("PERSON:" + zodiac_person.name)
+    """
+
+
+def add_new_person_to_zodiac_database():
+    # Create a backup of the current data
+    now = datetime.datetime.now()
+    shutil.copyfile("people.csv", "people backup from " + now.strftime("%d-%m-%Y %H.%M.%S") + ".csv")
+
+
+    # TODO: Continue here
+
+
+def get_person_info(person_name):
+    output = ""
+    person_found = False
+    for key, val in people_by_months_dict.items():
+        logging.debug("Searching in key (month): " + str(key))
+        for zodiac_person in val:
+            logging.debug("Comparing to person: " + zodiac_person.name)
+            if zodiac_person.name == person_name:
+                person_found = True
+                if zodiac_person.president == True:
+                    output += "NAME: President " + zodiac_person.name
+                else:
+                    output += "\nNAME: " + zodiac_person.name
+                output += "\nBIRTHDAY: " + zodiac_person.birthday.strftime(
+                    "%d %B, %Y (%A)") + ". This person is " + str(
+                    diff_between_two_dates(zodiac_person.birthday, datetime.date.today())[0]) + " years old."
+                output += "\nSIGN: " + zodiac_person.sign[0]
+                output += "\nELEMENT: " + zodiac_person.element
+                output += "\nQUALITY: " + zodiac_person.quality
+                output += "\nGAY POSITION: " + zodiac_person.gay_position
+                break
+            if person_found:
+                break
+        if person_found:
+            break
+    if not person_found:
+        return "That person is not in my database"
+
+    return output
+
+
+def get_sign_info(zodiac_sign):
+    # TODO: Documentation
+    output = ""
+    if zodiac_sign in zodiac_symbols:
+        output += "SIGN: " + zodiac_sign
+        output += "\nSYMBOL: " + zodiac_symbols[zodiac_sign]
+        output += zodiac_sign_descriptions[zodiac_sign]
+        output += "ELEMENT: " + get_element(zodiac_sign)
+        output += zodiac_element_descriptions[get_element(zodiac_sign)]
+        output += "QUALITY: " + get_quality(zodiac_sign)
+        output += "GAY POSITION: " + zodiac_gay_position[zodiac_sign]
+        return output
+    else:
+        return "That is not a valid Zodiac sign. "
+
+
+def get_symbol_info(zodiac_sign):
+    if zodiac_sign in zodiac_symbols:
+        return "SIGN: " + zodiac_sign + "\nSYMBOL: " + zodiac_symbols[zodiac_sign]
+    else:
+        return "That is not a valid Zodiac sign."
+
+
+def get_element_info(zodiac_sign):
+    if zodiac_sign in zodiac_sign_descriptions:
+        return "SIGN: " + zodiac_sign + "\nELEMENT: " + get_element(zodiac_sign) + "\n" + zodiac_element_descriptions[
+            get_element(zodiac_sign)]
+    else:
+        return "That is not a valid Zodiac sign."
+
+
+def get_sign_for_date(date):
+    """
+    Given a date, return the Zodiac sign for this date.
+    :param date: A string of a date in the form "January 1"
+    :return: The sign for this date
+    """
+    try:
+        # split date
+        month = date.split(" ")[0]
+        day = int(date.split(" ")[1])
+
+        try:
+            month = month_to_int(month)
+        except Exception as e:
+            logging.debug("There was an issue when calling month_to_int in 6. Look up a date.")
+            logging.debug(e)
+            return "That is not a valid month."
+
+        try:
+            date_obj = datetime.date(2001, month, day)
+        except Exception as e:
+            return "This date is invalid because that month doesn't have that many days."
+
+        sign = get_sign(date_obj)[0]
+
+        return "The sign for " + date_obj.strftime("%B %d") + " is " + sign
+    except Exception as e:
+        logging.debug("There was an issue with splitting the date in get_info_for_date()")
+        logging.debug(e)
+        return "That is not a valid date."
 
 
 def yield_dates_in_range(date1, date2):
@@ -404,6 +602,7 @@ class ZodiacPerson:
         self.hottie = bool(hottie)
         self.president = bool(president)
         self.sign = get_sign(self.birthday)
+        self.symbol = zodiac_symbols[self.sign[0]]
         self.element = get_element(self.sign[0])
         self.quality = get_quality(self.sign[0])
         self.gay_position = zodiac_gay_position[self.sign[0]]
