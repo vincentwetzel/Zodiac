@@ -17,25 +17,32 @@ zodiac_sign_descriptions = {
                  "\n-Capricorn likes: Family, tradition, music, understated status, quality craftsmanship"
                  "\n-Capricorn dislikes: Almost everything at some point"
                  "\n-Description: Capricorn is a sign that represents time and responsibility, and its representatives are traditional and often very serious by nature."
-                 "\n-These individuals possess an inner state of independence that enables significant progress both in their personal and professional lives."
+                 "\nThese individuals possess an inner state of independence that enables significant progress both in their personal and professional lives."
                  "\nThey are masters of self-control and have the ability to lead the way, make solid and realistic plans, and manage many people who work for them at any time."
                  "\nThey will learn from their mistakes and get to the top based solely on their experience and expertise.",
     "Aquarius": "-Strengths: Progressive, original, independent, humanitarian"
                 "\n-Weaknesses: Runs from emotional expression, temperamental, uncompromising, aloof"
                 "\n-Aquarius likes: Fun with friends, helping others, fighting for causes, intellectual conversation, a good listener"
                 "\n-Aquarius dislikes: Limitations, broken promises, being lonely, dull or boring situations, people who disagree with them"
-                "\n-Aquarius-born are shy and quiet, but on the other hand they can be eccentric and energetic. However, in both cases, they are deep thinkers and highly intellectual people who love helping others. They are able to see without prejudice, on both sides, which makes them people who can easily solve problems."
-                "\n-Description: Although they can easily adapt to the energy that surrounds them, Aquarius-born have a deep need to be some time alone and away from everything, in order to restore power. People born under the Aquarius sign, look at the world as a place full of possibilities.",
+                "\n-Description: Aquarius-born are shy and quiet, but on the other hand they can be eccentric and energetic."
+                "\nHowever, in both cases, they are deep thinkers and highly intellectual people who love helping others."
+                "\nThey are able to see without prejudice, on both sides, which makes them people who can easily solve problems."
+                "\nAlthough they can easily adapt to the energy that surrounds them, Aquarius-born have a deep need to be some time alone and away from everything, in order to restore power."
+                "\nPeople born under the Aquarius sign, look at the world as a place full of possibilities.",
     "Pisces": "-Strengths: Compassionate, artistic, intuitive, gentle, wise, musical"
               "\n-Weaknesses: Fearful, overly trusting, sad, desire to escape reality, can be a victim or a martyr"
               "\n-Pisces likes: Being alone, sleeping, music, romance, visual media, swimming, spiritual themes"
               "\n-Pisces dislikes: Know-it-all, being criticized, the past coming back to haunt, cruelty of any kind"
-              "\n-Description: Pisces are very friendly, so they often find themselves in a company of very different people. Pisces are selfless, they are always willing to help others, without hoping to get anything back.",
+              "\n-Description: Pisces are very friendly, so they often find themselves in a company of very different people."
+              "\nPisces are selfless, they are always willing to help others, without hoping to get anything back.",
     "Aries": "-Strengths: Courageous, determined, confident, enthusiastic, optimistic, honest, passionate"
              "\n-Weaknesses: Impatient, moody, short-tempered, impulsive, aggressive"
              "\n-Aries likes: Comfortable clothes, taking on leadership roles, physical challenges, individual sports"
              "\n-Aries dislikes: Inactivity, delays, work that does not use one's talents"
-             "\n-Description: As the first sign in the zodiac, the presence of Aries always marks the beginning of something energetic and turbulent. They are continuously looking for dynamic, speed and competition, always being the first in everything - from work to social gatherings. Thanks to its ruling planet Mars and the fact it belongs to the element of Fire (just like Leo and Sagittarius), Aries is one of the most active zodiac signs. It is in their nature to take action, sometimes before they think about it well.",
+             "\n-Description: As the first sign in the zodiac, the presence of Aries always marks the beginning of something energetic and turbulent."
+             "\nThey are continuously looking for dynamic, speed and competition, always being the first in everything - from work to social gatherings."
+             "\nThanks to its ruling planet Mars and the fact it belongs to the element of Fire (just like Leo and Sagittarius), Aries is one of the most active zodiac signs."
+             "\nIt is in their nature to take action, sometimes before they think about it well.",
     "Taurus": "-Strengths: Reliable, patient, practical, devoted, responsible, stable"
               "\n-Weaknesses: Stubborn, possessive, uncompromising"
               "\n-Taurus likes: Gardening, cooking, music, romance, high quality clothes, working with hands"
@@ -55,7 +62,10 @@ zodiac_sign_descriptions = {
               "\n-Weaknesses: Moody, pessimistic, suspicious, manipulative, insecure"
               "\n-Cancer likes: Art, home-based hobbies, relaxing near or in water, helping loved ones, a good meal with friends"
               "\n-Cancer dislikes: Strangers, any criticism of Mom, revealing of personal life"
-              "\n-Description: Deeply intuitive and sentimental, Cancer can be one of the most challenging zodiac signs to get to know. They are very emotional and sensitive, and care deeply about matters of the family and their home. Cancer is sympathetic and attached to people they keep close. Those born with their Sun in Cancer are very loyal and able to empathize with other people's pain and suffering.",
+              "\n-Description: Deeply intuitive and sentimental, Cancer can be one of the most challenging zodiac signs to get to know."
+              "\nThey are very emotional and sensitive, and care deeply about matters of the family and their home."
+              "\nCancer is sympathetic and attached to people they keep close."
+              "\nThose born with their Sun in Cancer are very loyal and able to empathize with other people's pain and suffering.",
     "Leo": "-Strengths: Creative, passionate, generous, warm-hearted, cheerful, humorous"
            "\n-Weaknesses: Arrogant, stubborn, self-centered, lazy, inflexible"
            "\n-Leo likes: Theater, taking holidays, being admired, expensive things, bright colors, fun with friends"
@@ -69,7 +79,10 @@ zodiac_sign_descriptions = {
              "\n-Weaknesses: Shyness, worry, overly critical of self and others, all work and no play"
              "\n-Virgo likes: Animals, healthy food, books, nature, cleanliness"
              "\n-Virgo dislikes: Rudeness, asking for help, taking center stage"
-             "\n-Description: Virgos are always paying attention to the smallest details and their deep sense of humanity makes them one of the most careful signs of the zodiac. Their methodical approach to life ensures that nothing is left to chance, and although they are often tender, their heart might be closed for the outer world. This is a sign often misunderstood, not because they lack the ability to express, but because they won’t accept their feelings as valid, true, or even relevant when opposed to reason. The symbolism behind the name speaks well of their nature, born with a feeling they are experiencing everything for the first time.",
+             "\n-Description: Virgos are always paying attention to the smallest details and their deep sense of humanity makes them one of the most careful signs of the zodiac."
+             "\nTheir methodical approach to life ensures that nothing is left to chance, and although they are often tender, their heart might be closed for the outer world."
+             "\nThis is a sign often misunderstood, not because they lack the ability to express, but because they won’t accept their feelings as valid, true, or even relevant when opposed to reason."
+             "\nThe symbolism behind the name speaks well of their nature, born with a feeling they are experiencing everything for the first time.",
     "Libra": "-Strengths: Cooperative, diplomatic, gracious, fair-minded, social"
              "\n-Weaknesses: Indecisive, avoids confrontations, will carry a grudge, self-pity"
              "\n-Libra likes: Harmony, gentleness, sharing with others, the outdoors"
@@ -97,24 +110,40 @@ zodiac_sign_descriptions = {
 
 zodiac_symbols = {
     "Capricorn": "Sea-Goat (Goat-Fish hybrid)",
+    "Capricorn/Aquarius": "Sea-Goat (Goat-Fish hybrid)/Water-bearer",
     "Aquarius": "Water-bearer",
+    "Aquarius/Pisces": "Water-bearer/Fish",
     "Pisces": "Fish",
+    "Pisces/Aries": "Fish/Ram",
     "Aries": "Ram",
+    "Aries/Taurus": "Ram/Bull",
     "Taurus": "Bull",
+    "Taurus/Gemini": "Bull/Twins",
     "Gemini": "Twins",
+    "Gemini/Cancer": "Twins/Crab",
     "Cancer": "Crab",
+    "Cancer/Leo": "Crab/Lion",
     "Leo": "Lion",
+    "Leo/Virgo": "Lion/Maiden",
     "Virgo": "Maiden",
+    "Virgo/Libra": "Maiden/Scales",
     "Libra": "Scales",
+    "Libra/Scorpio": "Scales/Scorpio",
     "Scorpio": "Scorpion",
-    "Sagittarius": "Archer"
+    "Scorpio/Sagittarius": "Scorpion/Archer",
+    "Sagittarius": "Archer",
+    "Sagittarius/Capricorn": "Archer/Sea-Goat (Goat-Fish hybrid)"
 }
 
 zodiac_elements = {
     "Water": ["Cancer", "Scorpio", "Pisces"],
     "Fire": ["Aries", "Leo", "Sagittarius"],
     "Earth": ["Taurus", "Virgo", "Capricorn"],
-    "Air": ["Gemini", "Libra", "Aquarius"]
+    "Air": ["Gemini", "Libra", "Aquarius"],
+    "Earth/Air": ["Capricorn/Aquarius", "Taurus/Gemini", "Virgo/Libra"],
+    "Air/Water": ["Aquarius/Pisces", "Gemini/Cancer", "Libra/Scorpio"],
+    "Water/Fire": ["Pisces/Aries", "Cancer/Leo", "Scorpio/Sagittarius"],
+    "Fire/Earth": ["Aries/Taurus", "Leo/Virgo", "Sagittarius/Capricorn"],
 }
 
 zodiac_element_descriptions = {
@@ -142,9 +171,12 @@ zodiac_element_descriptions = {
 }
 
 zodiac_qualities = {
-    "Cardinal": ["Aries", "Cancer", "Libra", "Capricorn"],
-    "Mutable": ["Gemini", "Virgo", "Sagittarius", "Pisces"],
-    "Fixed": ["Taurus", "Leo", "Scorpio", "Aquarius"]
+    "Cardinal": ["Capricorn", "Aries", "Cancer", "Libra"],
+    "Fixed": ["Aquarius", "Taurus", "Leo", "Scorpio"],
+    "Mutable": ["Pisces", "Gemini", "Virgo", "Sagittarius"],
+    "Cardinal/Fixed": ["Capricorn/Aquarius", "Aries/Taurus", "Cancer/Leo", "Libra/Scorpio"],
+    "Fixed/Mutable": ["Aquarius/Pisces", "Taurus/Gemini", "Leo/Virgo", "Scorpio/Sagittarius"],
+    "Mutable/Cardinal": ["Pisces/Aries", "Gemini/Cancer", "Virgo/Libra", "Sagittarius/Capricorn"]
 }
 
 zodiac_quality_descriptions = {
@@ -209,26 +241,40 @@ zodiac_gay_position = {
     "Virgo": "power switch",
     "Libra": "soft switch",
     "Scorpio": "kinky top",
-    "Sagittarius": "soft top"
+    "Sagittarius": "soft top",
+    "Capricorn/Aquarius": "kinky top/soft bottom",
+    "Aquarius/Pisces": "soft bottom/soft switch",
+    "Pisces/Aries": "soft switch/power top",
+    "Aries/Taurus": "power top/power bottom",
+    "Taurus/Gemini": "power bottom/kinky switch",
+    "Gemini/Cancer": "kinky switch/kinky bottom",
+    "Cancer/Leo": "kinky bottom/power top",
+    "Leo/Virgo": "power top/power switch",
+    "Virgo/Libra": "power switch/soft switch",
+    "Libra/Scorpio": "soft switch/kinky top",
+    "Scorpio/Sagittarius": "kinky top/soft top",
+    "Sagittarius/Capricorn": "soft top/kinky top"
 }
 
-people_by_months_dict = defaultdict(list)
+people_by_sign_dict = defaultdict(list)
+"""{ Month: ZodiacPerson }"""
 
 
 def main():
     # Initialize people data
-    init_people_from_csv()
+    init_people_from_csv("people.csv")
 
     while True:
         user_input = get_int_input(
             "\nChoose an option:"
             "\n1. Look up a person."
             "\n2. Add a new person."
-            "\n3. Look up a sign's information"
-            "\n4. Look up a symbol"
-            "\n5. Look up an element."
-            "\n6. Look up a date."
-            "\n7. Play a guessing game for signs and dates."
+            "\n3. Print statistics about the database"
+            "\n4. Look up a sign's information"
+            "\n5. Look up a symbol"
+            "\n6. Look up an element."
+            "\n7. Look up a date."
+            "\n8. Play a guessing game for signs and dates."
             "\n0. Exit."
             "\nPick an option:")
         if user_input == 1:
@@ -238,31 +284,34 @@ def main():
             # 2. Add a new person
             add_new_person_to_zodiac_database()
         elif user_input == 3:
-            # 3. Look up a sign's information"
+            # 3. Print statistics about the database
+            print(get_statistics_about_database())
+        elif user_input == 4:
+            # 4. Look up a sign's information"
             print(get_sign_info(input(
                 "The signs of the Zodiac are Capricorn, Aquarius, Pisces, Aries, Taurus, Gemini, "
-                "Cancer, Leo, Virgo, Libra, Scorpio, Sagitarius."
+                "Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius."
                 "\nEnter the sign that you would like to know more about: ")))
-        elif user_input == 4:
-            # 4. Look up a symbol
+        elif user_input == 5:
+            # 5. Look up a symbol
             print(get_symbol_info(input(
                 "Enter a Zodiac sign and I will give you its symbol."
                 "\nYour options are:"
                 "\nCapricorn, Aquarius, Pisces, Aries, Taurus, Gemini, "
-                "Cancer, Leo, Virgo, Libra, Scorpio, Sagitarius: ")))
-        elif user_input == 5:
-            # 5. Look up an element.
+                "Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius: ")))
+        elif user_input == 6:
+            # 6. Look up an element.
             get_element_info(input(
                 "Enter a Zodiac sign and I will give you its element."
                 "\nYour options are:"
                 "\nCapricorn, Aquarius, Pisces, Aries, Taurus, Gemini, "
                 "Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius: "))
-        elif user_input == 6:
-            # 6. Look up a date.
+        elif user_input == 7:
+            # 7. Look up a date.
             print(get_sign_for_date(
                 input("Enter a day of the year and I will give you its Zodiac information (e.g. January 1): ")))
-        elif user_input == 7:
-            # 7. Play a guessing game for signs and dates.
+        elif user_input == 8:
+            # 8. Play a guessing game for signs and dates.
             pass
             # TODO: Make a game
         elif user_input == 0:
@@ -273,44 +322,74 @@ def main():
     # --- Script End ---
 
 
-def init_people_from_csv():
-    global people_by_months_dict
-    with open("people.csv", 'r', newline='') as f:
+def init_people_from_csv(csv_file):
+    """
+    Initializes Zodiac data from a CSV file.
+    :return: None
+    """
+    global people_by_sign_dict
+    with open(csv_file, 'r', newline='') as f:
         reader = csv.DictReader(f)
         # fieldnames_for_csv = next(reader)  # Skip over headers
         for row in reader:
-            people_by_months_dict[row["Month"]].append(ZodiacPerson(row["Name"],
-                                                                    datetime.date(int(row["Year"]),
-                                                                                  month_to_int(row["Month"]),
-                                                                                  int(row["Day"])),
-                                                                    row["Political"] in ["True", "TRUE"],
-                                                                    row["Hottie"] in ["True", "TRUE"],
-                                                                    row["President"] in ["True", "TRUE"]
-                                                                    ))
-    """
-    logging.debug("Printing people_by_months_dict after it has been initialized...")
-    for month in people_by_months_dict:
-        logging.debug("MONTH:" + month)
-        for zodiac_person in people_by_months_dict[month]:
-            logging.debug("PERSON:" + zodiac_person.name)
-    """
+            person = ZodiacPerson(row["Name"],
+                                  datetime.date(int(row["Year"]),
+                                                month_to_int(row["Month"]),
+                                                int(row["Day"])),
+                                  row["Political"] in ["True", "TRUE"],
+                                  row["Hottie"] in ["True", "TRUE"],
+                                  row["President"] in ["True", "TRUE"]
+                                  )
+            people_by_sign_dict[row["Sign"]].append(person)
+
+            # Verify that the original data which is being read in from the file is correct
+            if not (row["Sign"] == person.sign):
+                raise Exception(
+                    "Person: " + person.name + " has caused an error during initialization. Their sign in the database is: " +
+                    row["Sign"] + " whereas it should be: " + person.sign)
+            if not row["Element"] == person.element:
+                raise Exception(
+                    "Person: " + person.name + " has caused an error during initialization. Their element in the database is: " +
+                    row["Element"] + " whereas it should be: " + person.element)
+            if not row["Quality"] == person.quality:
+                raise Exception(
+                    "Person: " + person.name + " has caused an error during initialization. Their element in the database is: " +
+                    row["Quality"] + " whereas it should be: " + person.quality)
+            if not row["Gay Position"] == person.gay_position:
+                raise Exception(
+                    "Person: " + person.name + " has caused an error during initialization. Their element in the database is: " +
+                    row["Gay Position"] + " whereas it sho`uld be: " + person.gay_position)
 
 
 def add_new_person_to_zodiac_database():
+    """
+    Add a new person to the CSV database.
+    :return: None
+    """
     # Create a backup of the current data
     now = datetime.datetime.now()
     shutil.copyfile("people.csv", "people backup from " + now.strftime("%d-%m-%Y %H.%M.%S") + ".csv")
 
-
-    # TODO: Continue here
+    # Prepare current data IN ORDER
+    people_in_order = x = [[] for i in range(13)]  # List of 13 lists, leave bucket 0 unused
+    global people_by_sign_dict
+    for zodiac_person in people_by_sign_dict.values():
+        month = zodiac_person.birthday.month
+        # TODO: Continue here
 
 
 def get_person_info(person_name):
+    """
+    Gets a string containing information about a specific person.
+    :param person_name: The name of the person to retrieve data about.
+    :return: A str containing Zodiac information about that person.
+    """
     output = ""
     person_found = False
-    for key, val in people_by_months_dict.items():
-        logging.debug("Searching in key (month): " + str(key))
-        for zodiac_person in val:
+    global people_by_sign_dict
+    for sign, people in people_by_sign_dict.items():
+        logging.debug("Searching in key (sign): " + str(sign))
+        for zodiac_person in people:
             logging.debug("Comparing to person: " + zodiac_person.name)
             if zodiac_person.name == person_name:
                 person_found = True
@@ -337,22 +416,38 @@ def get_person_info(person_name):
 
 
 def get_sign_info(zodiac_sign):
-    # TODO: Documentation
+    """
+    Gets information about a Zodiac sign.
+    :param zodiac_sign: The sign to get information about.
+    :return: A str containing information about that sign.
+    """
     output = ""
     if zodiac_sign in zodiac_symbols:
+        global people_by_sign_dict
         output += "SIGN: " + zodiac_sign
         output += "\nSYMBOL: " + zodiac_symbols[zodiac_sign]
-        output += zodiac_sign_descriptions[zodiac_sign]
-        output += "ELEMENT: " + get_element(zodiac_sign)
-        output += zodiac_element_descriptions[get_element(zodiac_sign)]
-        output += "QUALITY: " + get_quality(zodiac_sign)
-        output += "GAY POSITION: " + zodiac_gay_position[zodiac_sign]
+        output += "\n" + zodiac_sign_descriptions[zodiac_sign]
+        output += "\nELEMENT: " + get_element(zodiac_sign)
+        output += "\n" + zodiac_element_descriptions[get_element(zodiac_sign)]
+        output += "\nQUALITY: " + get_quality(zodiac_sign)
+        output += "\nGAY POSITION: " + zodiac_gay_position[zodiac_sign]
+        output += "\nPEOPLE: "
+        for person in people_by_sign_dict[zodiac_sign]:
+            output += person.name + " (" + person.birthday.strftime("%B %d") + "), "
+        if people_by_sign_dict[zodiac_sign]:
+            output = output[:-2].strip()  # Remove the last comma
+
         return output
     else:
         return "That is not a valid Zodiac sign. "
 
 
 def get_symbol_info(zodiac_sign):
+    """
+    Gets information about a Zodiac symbol.
+    :param zodiac_sign: The sign to get info about.
+    :return: A str of info about the input sign.
+    """
     if zodiac_sign in zodiac_symbols:
         return "SIGN: " + zodiac_sign + "\nSYMBOL: " + zodiac_symbols[zodiac_sign]
     else:
@@ -360,6 +455,11 @@ def get_symbol_info(zodiac_sign):
 
 
 def get_element_info(zodiac_sign):
+    """
+    Gets information about a Zodiac element.
+    :param zodiac_sign: A Zodiac sign to get element info for.
+    :return: A str containing information about the Element associated with the input Zodiac sign.
+    """
     if zodiac_sign in zodiac_sign_descriptions:
         return "SIGN: " + zodiac_sign + "\nELEMENT: " + get_element(zodiac_sign) + "\n" + zodiac_element_descriptions[
             get_element(zodiac_sign)]
@@ -397,6 +497,58 @@ def get_sign_for_date(date):
         logging.debug("There was an issue with splitting the date in get_info_for_date()")
         logging.debug(e)
         return "That is not a valid date."
+
+
+def get_statistics_about_database():
+    """
+    Gets statistics about the Zodiac database.
+    :return: A str with info about the database
+    """
+    political_by_sign_dict = defaultdict(list)
+    hottie_by_sign_dict = defaultdict(list)
+    presidents_by_sign_dict = defaultdict(list)
+    people_by_elements_dict = defaultdict(list)
+    people_by_qualities_dict = defaultdict(list)
+    people_by_gay_positions_dict = defaultdict(list)
+
+    output = format_section("TOTAL PEOPLE PER SIGN IN DATABASE", "*")
+    global people_by_sign_dict
+    for sign in people_by_sign_dict:
+        output += "\n" + sign + ": " + str(len(people_by_sign_dict[sign]))
+        for zodiac_person in people_by_sign_dict[sign]:
+            if zodiac_person.political:
+                political_by_sign_dict[sign].append(zodiac_person)
+            if zodiac_person.hottie:
+                hottie_by_sign_dict[sign].append(zodiac_person)
+            if zodiac_person.president:
+                presidents_by_sign_dict[sign].append(zodiac_person)
+            people_by_elements_dict[zodiac_person.element].append(zodiac_person)
+            people_by_qualities_dict[zodiac_person.element].append(zodiac_person)
+            people_by_gay_positions_dict[zodiac_person.gay_position].append(zodiac_person)
+    output += "\n"
+
+    output += format_section("PEOPLE BY SIGN", "*")
+    output += get_str_for_dict_of_lists(people_by_sign_dict)
+
+    output += format_section("POLITICAL PEOPLE BY SIGN", "*")
+    output += get_str_for_dict_of_lists(political_by_sign_dict)
+
+    output += format_section("HOTTIES BY SIGN", "*")
+    output += get_str_for_dict_of_lists(hottie_by_sign_dict)
+
+    output += format_section("PRESIDENTS BY SIGN", "*")
+    output += get_str_for_dict_of_lists(presidents_by_sign_dict)
+
+    output += format_section("PEOPLE BY ELEMENT", "*")
+    output += get_str_for_dict_of_lists(people_by_elements_dict)
+
+    output += format_section("PEOPLE BY QUALITY", "*")
+    output += get_str_for_dict_of_lists(people_by_qualities_dict)
+
+    output += format_section("PEOPLE BY GAY POSITION", "*")
+    output += get_str_for_dict_of_lists(people_by_gay_positions_dict)
+
+    return output
 
 
 def yield_dates_in_range(date1, date2):
@@ -445,6 +597,20 @@ def diff_between_two_dates(starting_date, ending_date):
     return (years, months, days)
 
 
+def get_str_for_dict_of_lists(d):
+    output = ""
+    for key in d:
+        output += "\n" + key + "(" + str(len(d[key])) + ", " + "%0.2f" % (100 * len(
+            d[key]) / sum(len(x) for x in d.values())) + "%): "
+        for person in d[key]:
+            output += person.name + ", "
+        if not people_by_sign_dict[key] == []:
+            output = output[:-2]  # Remove the last comma
+    output += "\nTOTAL: " + str(sum(len(x) for x in d.values())) + "\n"
+
+    return output
+
+
 def month_to_int(month):
     if month == "January":
         return 1
@@ -484,63 +650,58 @@ def get_sign(date_obj):
     cusp = None
 
     # non-cusp
-    if (date_obj.month == 12 and date_obj.day >= 22) or (date_obj.month == 1 and date_obj.day <= 20):
+    if (date_obj.month == 12 and date_obj.day >= 25) or (date_obj.month == 1 and date_obj.day <= 15):
         sign = "Capricorn"
-    elif (date_obj.month == 1 and date_obj.day >= 21) or (date_obj.month == 2 and date_obj.day <= 19):
+    elif (date_obj.month == 1 and date_obj.day >= 16) and (date_obj.month == 1 and date_obj.day <= 23):
+        sign = "Capricorn/Aquarius"
+    elif (date_obj.month == 1 and date_obj.day >= 24) or (date_obj.month == 2 and date_obj.day <= 14):
         sign = "Aquarius"
-    elif (date_obj.month == 2 and date_obj.day >= 20) or (date_obj.month == 3 and date_obj.day <= 20):
+    elif (date_obj.month == 2 and date_obj.day >= 15) and (date_obj.month == 2 and date_obj.day <= 21):
+        sign = "Aquarius/Pisces"
+    elif (date_obj.month == 2 and date_obj.day >= 22) or (date_obj.month == 3 and date_obj.day <= 16):
         sign = "Pisces"
-    elif (date_obj.month == 3 and date_obj.day >= 21) or (date_obj.month == 4 and date_obj.day <= 20):
+    elif (date_obj.month == 3 and date_obj.day >= 17) and (date_obj.month == 3 and date_obj.day <= 23):
+        sign = "Pisces/Aries"
+    elif (date_obj.month == 3 and date_obj.day >= 24) or (date_obj.month == 4 and date_obj.day <= 15):
         sign = "Aries"
-    elif (date_obj.month == 4 and date_obj.day >= 21) or (date_obj.month == 5 and date_obj.day <= 20):
+    elif (date_obj.month == 4 and date_obj.day >= 16) and (date_obj.month == 4 and date_obj.day <= 22):
+        sign = "Aries/Taurus"
+    elif (date_obj.month == 4 and date_obj.day >= 23) or (date_obj.month == 5 and date_obj.day <= 16):
         sign = "Taurus"
-    elif (date_obj.month == 5 and date_obj.day >= 21) or (date_obj.month == 6 and date_obj.day <= 21):
+    elif (date_obj.month == 5 and date_obj.day >= 17) and (date_obj.month == 5 and date_obj.day <= 23):
+        sign = "Taurus/Gemini"
+    elif (date_obj.month == 5 and date_obj.day >= 24) or (date_obj.month == 6 and date_obj.day <= 16):
         sign = "Gemini"
-    elif (date_obj.month == 6 and date_obj.day >= 22) or (date_obj.month == 7 and date_obj.day <= 22):
+    elif (date_obj.month == 6 and date_obj.day >= 17) and (date_obj.month == 6 and date_obj.day <= 23):
+        sign = "Gemini/Cancer"
+    elif (date_obj.month == 6 and date_obj.day >= 24) or (date_obj.month == 7 and date_obj.day <= 18):
         sign = "Cancer"
-    elif (date_obj.month == 7 and date_obj.day >= 23) or (date_obj.month == 8 and date_obj.day <= 23):
+    elif (date_obj.month == 7 and date_obj.day >= 19) and (date_obj.month == 7 and date_obj.day <= 25):
+        sign = "Cancer/Leo"
+    elif (date_obj.month == 7 and date_obj.day >= 26) or (date_obj.month == 8 and date_obj.day <= 18):
         sign = "Leo"
-    elif (date_obj.month == 8 and date_obj.day >= 24) or (date_obj.month == 9 and date_obj.day <= 22):
+    elif (date_obj.month == 8 and date_obj.day >= 19) and (date_obj.month == 8 and date_obj.day <= 25):
+        sign = "Leo/Virgo"
+    elif (date_obj.month == 8 and date_obj.day >= 26) or (date_obj.month == 9 and date_obj.day <= 18):
         sign = "Virgo"
-    elif (date_obj.month == 9 and date_obj.day >= 23) or (date_obj.month == 10 and date_obj.day <= 22):
+    elif (date_obj.month == 9 and date_obj.day >= 19) and (date_obj.month == 9 and date_obj.day <= 25):
+        sign = "Virgo/Libra"
+    elif (date_obj.month == 9 and date_obj.day >= 26) or (date_obj.month == 10 and date_obj.day <= 18):
         sign = "Libra"
-    elif (date_obj.month == 10 and date_obj.day >= 23) or (date_obj.month == 11 and date_obj.day <= 22):
+    elif (date_obj.month == 10 and date_obj.day >= 19) and (date_obj.month == 10 and date_obj.day <= 25):
+        sign = "Libra/Scorpio"
+    elif (date_obj.month == 10 and date_obj.day >= 26) or (date_obj.month == 11 and date_obj.day <= 17):
         sign = "Scorpio"
-    elif (date_obj.month == 11 and date_obj.day >= 23) or (date_obj.month == 12 and date_obj.day <= 21):
+    elif (date_obj.month == 11 and date_obj.day >= 18) and (date_obj.month == 11 and date_obj.day <= 24):
+        sign = "Scorpio/Sagittarius"
+    elif (date_obj.month == 11 and date_obj.day >= 25) or (date_obj.month == 12 and date_obj.day <= 17):
         sign = "Sagittarius"
+    elif (date_obj.month == 12 and date_obj.day >= 18) and (date_obj.month == 12 and date_obj.day <= 24):
+        sign = "Sagittarius/Capricorn"
     else:
         raise Exception("No sign was assigned in get_sign()")
 
-    # cusps
-    if (date_obj.month == 1 and date_obj.day >= 16) or (date_obj.month == 1 and date_obj.day <= 23):
-        cusp = "Capricorn/Aquarius"
-    elif (date_obj.month == 2 and date_obj.day >= 15) or (date_obj.month == 2 and date_obj.day <= 21):
-        cusp = "Aquarius/Pisces"
-    elif (date_obj.month == 3 and date_obj.day >= 17) or (date_obj.month == 3 and date_obj.day <= 23):
-        cusp = "Pisces/Aries"
-    elif (date_obj.month == 4 and date_obj.day >= 16) or (date_obj.month == 4 and date_obj.day <= 22):
-        cusp = "Aries/Taurus"
-    elif (date_obj.month == 5 and date_obj.day >= 17) or (date_obj.month == 5 and date_obj.day <= 23):
-        cusp = "Taurus/Gemini"
-    elif (date_obj.month == 6 and date_obj.day >= 17) or (date_obj.month == 6 and date_obj.day <= 23):
-        cusp = "Gemini/Cancer"
-    elif (date_obj.month == 7 and date_obj.day >= 19) or (date_obj.month == 7 and date_obj.day <= 25):
-        cusp = "Cancer/Leo"
-    elif (date_obj.month == 8 and date_obj.day >= 19) or (date_obj.month == 8 and date_obj.day <= 25):
-        cusp = "Leo/Virgo"
-    elif (date_obj.month == 9 and date_obj.day >= 19) or (date_obj.month == 9 and date_obj.day <= 25):
-        cusp = "Virgo/Libra"
-    elif (date_obj.month == 10 and date_obj.day >= 19) or (date_obj.month == 10 and date_obj.day <= 25):
-        cusp = "Libra/Scorpio"
-    elif (date_obj.month == 11 and date_obj.day >= 18) or (date_obj.month == 11 and date_obj.day <= 24):
-        cusp = "Scorpio/Sagittarius"
-    elif (date_obj.month == 12 and date_obj.day >= 18) or (date_obj.month == 12 and date_obj.day <= 24):
-        cusp = "Sagittarius/Capricorn"
-    else:
-        pass  # No cusp detected
-
-    tup = (sign, cusp)
-    return tup
+    return sign
 
 
 def get_quality(sign):
@@ -553,7 +714,7 @@ def get_quality(sign):
         for zodiac_sign in zodiac_qualities[quality]:
             if zodiac_sign == sign:
                 return quality
-    raise Exception("No element was found for " + str(sign))
+    raise Exception("No quality was found for " + str(sign))
 
 
 def get_element(sign):
@@ -582,6 +743,17 @@ def get_int_input(query_str):
             print("That didn't work. Try again.")
 
 
+def format_section(section_title, symbol):
+    """
+    A helper method to print our output to the console in a pretty fashion
+
+    :param section_title:   The name of the section we are printing.
+    :param symbol:      The symbol to repetetively print to box in our output. This will usually be a '*'.
+    :return:    None
+    """
+    return "\n" + (symbol * 50) + "\n" + section_title + "\n" + (symbol * 50) + "\n"
+
+
 class ZodiacPerson:
     """
     A class to hold data about an individual and their Zodiac info.
@@ -598,14 +770,15 @@ class ZodiacPerson:
         """
         self.name = name
         self.birthday = birthday_date
+        """stored as a date object"""
         self.political = bool(political)
         self.hottie = bool(hottie)
         self.president = bool(president)
         self.sign = get_sign(self.birthday)
-        self.symbol = zodiac_symbols[self.sign[0]]
-        self.element = get_element(self.sign[0])
-        self.quality = get_quality(self.sign[0])
-        self.gay_position = zodiac_gay_position[self.sign[0]]
+        self.symbol = zodiac_symbols[self.sign]
+        self.element = get_element(self.sign)
+        self.quality = get_quality(self.sign)
+        self.gay_position = zodiac_gay_position[self.sign]
 
 
 if __name__ == "__main__":

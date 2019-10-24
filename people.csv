@@ -9,16 +9,16 @@ Andrew Yang,13,January,1975,Capricorn,Earth,Cardinal,kinky top,TRUE,FALSE,FALSE
 Nate Silver,13,January,1978,Capricorn,Earth,Cardinal,kinky top,TRUE,FALSE,FALSE
 Brandon Pikulinski,13,January,1,Capricorn,Earth,Cardinal,kinky top,FALSE,TRUE,FALSE
 Ben Shapiro,15,January,1984,Capricorn,Earth,Cardinal,kinky top,TRUE,FALSE,FALSE
-Bill Maher,20,January,1,Capricorn/Aquarius,Earth/Air,Cardinal/Fixed,kinky top/soft bottom,TRUE,FALSE,FALSE
+Bill Maher,20,January,1956,Capricorn/Aquarius,Earth/Air,Cardinal/Fixed,kinky top/soft bottom,TRUE,FALSE,FALSE
 Mario Adrion,21,January,1,Capricorn/Aquarius,Earth/Air,Cardinal/Fixed,kinky top/soft bottom,FALSE,TRUE,FALSE
-Pete Buttigieg,21,January,1,Capricorn/Aquarius,Earth/Air,Cardinal/Fixed,kinky top/soft bottom,TRUE,FALSE,FALSE
+Pete Buttigieg,19,January,1982,Capricorn/Aquarius,Earth/Air,Cardinal/Fixed,kinky top/soft bottom,TRUE,FALSE,FALSE
 Clare Malone,23,January,1,Capricorn/Aquarius,Earth/Air,Cardinal/Fixed,kinky top/soft bottom,TRUE,FALSE,FALSE
-Amanda McGuire,29,January,1,Aquarius,Air,Fixed,soft bottom,TRUE,FALSE,FALSE
+Amanda McGuire,29,January,1997,Aquarius,Air,Fixed,soft bottom,TRUE,FALSE,FALSE
 Hunter Page,29,January,1,Aquarius,Air,Fixed,soft bottom,FALSE,TRUE,FALSE
-Kyle Kulinski,31,January,1,Aquarius,Air,Fixed,soft bottom,TRUE,FALSE,FALSE
-Barrett Thompson,1,February,1,Aquarius,Air,Fixed,soft bottom,TRUE,TRUE,FALSE
+Kyle Kulinski,31,January,1988,Aquarius,Air,Fixed,soft bottom,TRUE,FALSE,FALSE
+Barrett Thompson,1,February,1996,Aquarius,Air,Fixed,soft bottom,TRUE,TRUE,FALSE
 Adrielle Herring,2,February,1,Aquarius,Air,Fixed,soft bottom,TRUE,FALSE,FALSE
-Moritz Hau,3,February,1,Aquarius,Air,Fixed,soft bottom,FALSE,TRUE,FALSE
+Moritz Hau,3,February,1998,Aquarius,Air,Fixed,soft bottom,FALSE,TRUE,FALSE
 Sylvia Miera-Fisk,4,February,1,Aquarius,Air,Fixed,soft bottom,TRUE,FALSE,FALSE
 Landon Beaty,10,February,1,Aquarius,Air,Fixed,soft bottom,FALSE,TRUE,FALSE
 Daryl Acumen,18,February,1,Aquarius/Pisces,Air/Water,Fixed/Mutable,soft bottom/soft switch,TRUE,FALSE,FALSE
@@ -218,8 +218,8 @@ John Q. Adams,11,July,1767,Cancer,Water,Cardinal,kinky bottom,TRUE,FALSE,TRUE
 Gerald Ford,14,July,1913,Cancer,Water,Cardinal,kinky bottom,TRUE,FALSE,TRUE
 Barack Obama,4,August,1961,Leo,Fire,Fixed,power top,TRUE,FALSE,TRUE
 Herbert Hoover,10,August,1874,Leo,Fire,Fixed,power top,TRUE,FALSE,TRUE
-Bill Clinton,19,August,1946,Leo,Fire,Fixed,power top,TRUE,FALSE,TRUE
-Benjamin Harrison,20,August,1833,Leo,Fire,Fixed,power top,TRUE,FALSE,TRUE
+Bill Clinton,19,August,1946,Leo/Virgo,Fire/Earth,Fixed/Mutable,power top/power switch,TRUE,FALSE,TRUE
+Benjamin Harrison,20,August,1833,Leo/Virgo,Fire/Earth,Fixed/Mutable,power top/power switch,TRUE,FALSE,TRUE
 Lyndon Johnson,27,August,1908,Virgo,Earth,Mutable,power switch,TRUE,FALSE,TRUE
 William Taft,15,September,1857,Virgo,Earth,Mutable,power switch,TRUE,FALSE,TRUE
 Jimmy Carter,1,October,1924,Libra,Air,Cardinal,soft switch,TRUE,FALSE,TRUE
@@ -231,12 +231,12 @@ John Adams,30,October,1735,Scorpio,Water,Fixed,kinky top,TRUE,FALSE,TRUE
 James Polk,2,November,1795,Scorpio,Water,Fixed,kinky top,TRUE,FALSE,TRUE
 Warren Harding,2,November,1865,Scorpio,Water,Fixed,kinky top,TRUE,FALSE,TRUE
 James Garfield,19,November,1831,Scorpio/Sagittarius,Water/Fire,Fixed/Mutable,kinky top/soft top,TRUE,FALSE,TRUE
-Franklin Pierce,23,November,1804,Sagittarius,Fire,Mutable,soft top,TRUE,FALSE,TRUE
-Zachary Taylor,24,November,1784,Sagittarius,Fire,Mutable,soft top,TRUE,FALSE,TRUE
+Franklin Pierce,23,November,1804,Scorpio/Sagittarius,Water/Fire,Fixed/Mutable,kinky top/soft top,TRUE,FALSE,TRUE
+Zachary Taylor,24,November,1784,Scorpio/Sagittarius,Water/Fire,Fixed/Mutable,kinky top/soft top,TRUE,FALSE,TRUE
 Martin Van Buren,5,December,1782,Sagittarius,Fire,Mutable,soft top,TRUE,FALSE,TRUE
 Woodrow Wilson,28,December,1856,Capricorn,Earth,Cardinal,kinky top,TRUE,FALSE,TRUE
 Andrew Johnson,29,December,1808,Capricorn,Earth,Cardinal,kinky top,TRUE,FALSE,TRUE
-Hailey Ann LaBounty,6,October,1998,Libra,Air,Cardinal,soft switch,FALSE,FALSE,TRUE
+Hailey Ann LaBounty,6,October,1998,Libra,Air,Cardinal,soft switch,FALSE,FALSE,FALSE
 Frederick Douglass,14,February,1818,Aquarius,Air,Fixed,soft bottom,TRUE,TRUE,TRUE
 Alex Lange,3,March,2001,Pisces,Water,Mutable,soft switch,FALSE,TRUE,FALSE
 Cameron Dallas,8,September,1994,Virgo,Earth,Mutable,power switch,FALSE,TRUE,FALSE
@@ -246,6 +246,15 @@ Whoopi Goldberg,13,November,1995,Scorpio,Water,Fixed,kinky top,TRUE,FALSE,FALSE
 Justin Bieber,1,March,1994,Pisces,Water,Mutable,soft switch,FALSE,TRUE,FALSE
 Edmond Miniatt,6,October,1990,Libra,Air,Cardinal,soft switch,FALSE,FALSE,FALSE
 Gunnar Thorderson,2,July,1,Cancer,Water,Cardinal,kinky bottom,TRUE,TRUE,FALSE
-John Dickerson,6,June,1968,Cancer,Water,Cardinal,kinky bottom,TRUE,TRUE,FALSE
+John Dickerson,6,June,1968,Gemini,Air,Mutable,kinky switch,TRUE,FALSE,FALSE
 Emily Bazelon,4,March,1971,Pisces,Water,Mutable,soft switch,TRUE,FALSE,FALSE
 David Plotz,31,January,1970,Aquarius,Air,Fixed,soft bottom,TRUE,FALSE,FALSE
+AJ Schechter,7,December,1,Sagittarius,Fire,Mutable,soft top,FALSE,TRUE,FALSE
+Newt Gingrich,17,June,1954,Gemini/Cancer,Air/Water,Mutable/Cardinal,kinky switch/kinky bottom,TRUE,FALSE,FALSE
+Ron Paul,20,August,1935,Leo/Virgo,Fire/Earth,Fixed/Mutable,power top/power switch,TRUE,FALSE,FALSE
+John Boehner,17,November,1949,Scorpio,Water,Fixed,kinky top,TRUE,FALSE,FALSE
+Kevin McCarthy,26,January,1965,Aquarius,Air,Fixed,soft bottom,TRUE,FALSE,FALSE
+Alex Llanos,6,December,1991,Sagittarius,Fire,Mutable,soft top,FALSE,TRUE,FALSE
+John Bercow,19,January,1963,Capricorn/Aquarius,Earth/Air,Cardinal/Fixed,kinky top/soft bottom,TRUE,FALSE,FALSE
+Jason Rees-Mogg,24,May,1969,Gemini,Air,Mutable,kinky switch,TRUE,FALSE,FALSE
+Theresa May,1,October,1956,Libra,Air,Cardinal,soft switch,TRUE,FALSE,FALSE
