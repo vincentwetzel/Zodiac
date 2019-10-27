@@ -8,7 +8,6 @@ import csv
 import datetime
 import calendar
 from collections import defaultdict
-import random
 import shutil
 
 zodiac_sign_descriptions = {
@@ -107,6 +106,7 @@ zodiac_sign_descriptions = {
                    "\nSagittarius is extrovert, optimistic and enthusiastic, and likes changes."
                    "\nSagittarius-born are able to transform their thoughts into concrete actions and they will do anything to achieve their goals."
 }
+"""{ Sign: Description }"""
 
 zodiac_symbols = {
     "Capricorn": "Sea-Goat (Goat-Fish hybrid)",
@@ -134,6 +134,7 @@ zodiac_symbols = {
     "Sagittarius": "Archer",
     "Sagittarius/Capricorn": "Archer/Sea-Goat (Goat-Fish hybrid)"
 }
+"""{ Sign: Symbol }"""
 
 zodiac_elements = {
     "Water": ["Cancer", "Scorpio", "Pisces"],
@@ -145,30 +146,32 @@ zodiac_elements = {
     "Water/Fire": ["Pisces/Aries", "Cancer/Leo", "Scorpio/Sagittarius"],
     "Fire/Earth": ["Aries/Taurus", "Leo/Virgo", "Sagittarius/Capricorn"],
 }
+"""{ Element: Zodiac Sign }"""
 
 zodiac_element_descriptions = {
-    "Water": "Water signs are exceptionally emotional and ultra-sensitive."
+    "Water": "The Water Signs are: Cancer, Scorpio and Pisces."
+             "\nWater signs are exceptionally emotional and ultra-sensitive."
              "\nThey are highly intuitive and they can be as mysterious as the ocean itself."
              "\nWater signs love profound conversations and intimacy."
-             "\nThey rarely do anything openly and are always there to support their loved ones."
-             "\nThe Water Signs are: Cancer, Scorpio and Pisces.",
-    "Fire": "Fire signs tend to be passionate, dynamic, and temperamental."
+             "\nThey rarely do anything openly and are always there to support their loved ones.",
+    "Fire": "The Fire Signs are: Aries, Leo and Sagittarius."
+            "\nFire signs tend to be passionate, dynamic, and temperamental."
             "\nThey get angry quickly, but they also forgive easily."
             "\nThey are adventurers with immense energy."
             "\nThey are physically very strong and are a source of inspiration for others."
-            "\nFire signs are intelligent, self-aware, creative and idealistic people, always ready for action."
-            "\nThe Fire Signs are: Aries, Leo and Sagittarius.",
-    "Earth": "Earth signs are “grounded” and the ones that bring us down to earth."
+            "\nFire signs are intelligent, self-aware, creative and idealistic people, always ready for action.",
+    "Earth": "The Earth Signs are: Taurus, Virgo and Capricorn."
+             "\nEarth signs are “grounded” and the ones that bring us down to earth."
              "\nThey are mostly conservative and realistic, but they can also be very emotional."
              "\nThey are connected to our material reality and can be turned to material goods."
-             "\nThey are practical, loyal and stable and they stick by their people through hard times."
-             "\nThe Earth Signs are: Taurus, Virgo and Capricorn.",
-    "Air": "Air signs are rational, social, and love communication and relationships with other people."
+             "\nThey are practical, loyal and stable and they stick by their people through hard times.",
+    "Air": "The Air Signs are: Gemini, Libra and Aquarius."
+           "\nAir signs are rational, social, and love communication and relationships with other people."
            "\nThey are thinkers, friendly, intellectual, communicative and analytical."
            "\nThey love philosophical discussions, social gatherings and good books."
            "\nThey enjoy giving advice, but they can also be very superficial."
-           "\nThe Air Signs are: Gemini, Libra and Aquarius."
 }
+"""{ Element: Description }"""
 
 zodiac_qualities = {
     "Cardinal": ["Capricorn", "Aries", "Cancer", "Libra"],
@@ -178,6 +181,7 @@ zodiac_qualities = {
     "Fixed/Mutable": ["Aquarius/Pisces", "Taurus/Gemini", "Leo/Virgo", "Scorpio/Sagittarius"],
     "Mutable/Cardinal": ["Pisces/Aries", "Gemini/Cancer", "Virgo/Libra", "Sagittarius/Capricorn"]
 }
+"""{ Quality: Sign }"""
 
 zodiac_quality_descriptions = {
     "Cardinal": "Cardinal Signs are the initiators of the zodiac."
@@ -228,6 +232,7 @@ zodiac_quality_descriptions = {
              "They have great strength, and strength of purpose, and love to get the job done."
              "So what if they refuse to budge? They get results."
 }
+"""{ Sign: Description }"""
 
 zodiac_gay_position = {
     "Capricorn": "kinky top",
@@ -255,6 +260,7 @@ zodiac_gay_position = {
     "Scorpio/Sagittarius": "kinky top/soft top",
     "Sagittarius/Capricorn": "soft top/kinky top"
 }
+"""{ Sign: Gay sex position }"""
 
 people_by_sign_dict = defaultdict(list)
 """{ Month: ZodiacPerson }"""
@@ -285,7 +291,7 @@ def main():
             add_new_person_to_zodiac_database()
         elif user_input == 3:
             # 3. Print statistics about the database
-            print(get_statistics_about_database())
+            print(get_stats_about_database())
         elif user_input == 4:
             # 4. Look up a sign's information"
             print(get_sign_info(input(
@@ -301,11 +307,11 @@ def main():
                 "Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius: ")))
         elif user_input == 6:
             # 6. Look up an element.
-            get_element_info(input(
+            print(get_element_info(input(
                 "Enter a Zodiac sign and I will give you its element."
                 "\nYour options are:"
                 "\nCapricorn, Aquarius, Pisces, Aries, Taurus, Gemini, "
-                "Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius: "))
+                "Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius: ")))
         elif user_input == 7:
             # 7. Look up a date.
             print(get_sign_for_date(
@@ -375,131 +381,10 @@ def add_new_person_to_zodiac_database():
     global people_by_sign_dict
     for zodiac_person in people_by_sign_dict.values():
         month = zodiac_person.birthday.month
-        # TODO: Continue here
+        # TODO: Add a new person to the database
 
 
-def get_person_info(person_name):
-    """
-    Gets a string containing information about a specific person.
-    :param person_name: The name of the person to retrieve data about.
-    :return: A str containing Zodiac information about that person.
-    """
-    output = ""
-    person_found = False
-    global people_by_sign_dict
-    for sign, people in people_by_sign_dict.items():
-        logging.debug("Searching in key (sign): " + str(sign))
-        for zodiac_person in people:
-            logging.debug("Comparing to person: " + zodiac_person.name)
-            if zodiac_person.name == person_name:
-                person_found = True
-                if zodiac_person.president == True:
-                    output += "NAME: President " + zodiac_person.name
-                else:
-                    output += "\nNAME: " + zodiac_person.name
-                output += "\nBIRTHDAY: " + zodiac_person.birthday.strftime(
-                    "%d %B, %Y (%A)") + ". This person is " + str(
-                    diff_between_two_dates(zodiac_person.birthday, datetime.date.today())[0]) + " years old."
-                output += "\nSIGN: " + zodiac_person.sign[0]
-                output += "\nELEMENT: " + zodiac_person.element
-                output += "\nQUALITY: " + zodiac_person.quality
-                output += "\nGAY POSITION: " + zodiac_person.gay_position
-                break
-            if person_found:
-                break
-        if person_found:
-            break
-    if not person_found:
-        return "That person is not in my database"
-
-    return output
-
-
-def get_sign_info(zodiac_sign):
-    """
-    Gets information about a Zodiac sign.
-    :param zodiac_sign: The sign to get information about.
-    :return: A str containing information about that sign.
-    """
-    output = ""
-    if zodiac_sign in zodiac_symbols:
-        global people_by_sign_dict
-        output += "SIGN: " + zodiac_sign
-        output += "\nSYMBOL: " + zodiac_symbols[zodiac_sign]
-        output += "\n" + zodiac_sign_descriptions[zodiac_sign]
-        output += "\nELEMENT: " + get_element(zodiac_sign)
-        output += "\n" + zodiac_element_descriptions[get_element(zodiac_sign)]
-        output += "\nQUALITY: " + get_quality(zodiac_sign)
-        output += "\nGAY POSITION: " + zodiac_gay_position[zodiac_sign]
-        output += "\nPEOPLE: "
-        for person in people_by_sign_dict[zodiac_sign]:
-            output += person.name + " (" + person.birthday.strftime("%B %d") + "), "
-        if people_by_sign_dict[zodiac_sign]:
-            output = output[:-2].strip()  # Remove the last comma
-
-        return output
-    else:
-        return "That is not a valid Zodiac sign. "
-
-
-def get_symbol_info(zodiac_sign):
-    """
-    Gets information about a Zodiac symbol.
-    :param zodiac_sign: The sign to get info about.
-    :return: A str of info about the input sign.
-    """
-    if zodiac_sign in zodiac_symbols:
-        return "SIGN: " + zodiac_sign + "\nSYMBOL: " + zodiac_symbols[zodiac_sign]
-    else:
-        return "That is not a valid Zodiac sign."
-
-
-def get_element_info(zodiac_sign):
-    """
-    Gets information about a Zodiac element.
-    :param zodiac_sign: A Zodiac sign to get element info for.
-    :return: A str containing information about the Element associated with the input Zodiac sign.
-    """
-    if zodiac_sign in zodiac_sign_descriptions:
-        return "SIGN: " + zodiac_sign + "\nELEMENT: " + get_element(zodiac_sign) + "\n" + zodiac_element_descriptions[
-            get_element(zodiac_sign)]
-    else:
-        return "That is not a valid Zodiac sign."
-
-
-def get_sign_for_date(date):
-    """
-    Given a date, return the Zodiac sign for this date.
-    :param date: A string of a date in the form "January 1"
-    :return: The sign for this date
-    """
-    try:
-        # split date
-        month = date.split(" ")[0]
-        day = int(date.split(" ")[1])
-
-        try:
-            month = month_to_int(month)
-        except Exception as e:
-            logging.debug("There was an issue when calling month_to_int in 6. Look up a date.")
-            logging.debug(e)
-            return "That is not a valid month."
-
-        try:
-            date_obj = datetime.date(2001, month, day)
-        except Exception as e:
-            return "This date is invalid because that month doesn't have that many days."
-
-        sign = get_sign(date_obj)[0]
-
-        return "The sign for " + date_obj.strftime("%B %d") + " is " + sign
-    except Exception as e:
-        logging.debug("There was an issue with splitting the date in get_info_for_date()")
-        logging.debug(e)
-        return "That is not a valid date."
-
-
-def get_statistics_about_database():
+def get_stats_about_database():
     """
     Gets statistics about the Zodiac database.
     :return: A str with info about the database
@@ -551,6 +436,126 @@ def get_statistics_about_database():
     return output
 
 
+def get_person_info(person_name):
+    """
+    Gets a string containing information about a specific person.
+    :param person_name: The name of the person to retrieve data about.
+    :return: A str containing Zodiac information about that person.
+    """
+    output = ""
+    person_found = False
+    global people_by_sign_dict
+    for sign, people in people_by_sign_dict.items():
+        logging.debug("Searching in key (sign): " + str(sign))
+        for zodiac_person in people:
+            logging.debug("Comparing to person: " + zodiac_person.name)
+            if zodiac_person.name == person_name:
+                person_found = True
+                if zodiac_person.president == True:
+                    output += "NAME: President " + zodiac_person.name
+                else:
+                    output += "\nNAME: " + zodiac_person.name
+                output += "\nBIRTHDAY: " + zodiac_person.birthday.strftime(
+                    "%d %B, %Y (%A)") + ". This person is " + str(
+                    diff_between_two_dates(zodiac_person.birthday, datetime.date.today())[0]) + " years old."
+                output += "\nSIGN: " + zodiac_person.sign
+                output += "\nELEMENT: " + zodiac_person.element
+                output += "\nQUALITY: " + zodiac_person.quality
+                output += "\nGAY POSITION: " + zodiac_person.gay_position
+                break
+            if person_found:
+                break
+        if person_found:
+            break
+    if not person_found:
+        return "That person is not in my database"
+
+    return output
+
+
+def get_sign_info(zodiac_sign):
+    """
+    Gets information about a Zodiac sign.
+    :param zodiac_sign: The sign to get information about.
+    :return: A str containing information about that sign.
+    """
+    output = ""
+    if zodiac_sign in zodiac_symbols:
+        global people_by_sign_dict
+        output += format_section(zodiac_sign + ", the " + zodiac_symbols[zodiac_sign], "*")
+        output += zodiac_sign_descriptions[zodiac_sign]
+        output += "\n\nELEMENT: " + get_element(zodiac_sign)
+        output += "\n" + zodiac_element_descriptions[get_element(zodiac_sign)]
+        output += "\n\nQUALITY: " + get_quality(zodiac_sign)
+        output += "\n" + zodiac_quality_descriptions[get_quality(zodiac_sign)]
+        output += "\n\nGAY POSITION: " + zodiac_gay_position[zodiac_sign]
+        output += "\n\nPEOPLE: "
+        for person in people_by_sign_dict[zodiac_sign]:
+            output += person.name + " (" + person.birthday.strftime("%B %d") + "), "
+        if people_by_sign_dict[zodiac_sign]:
+            output = output[:-2].strip()  # Remove the last comma
+
+        return output
+    else:
+        return "That is not a valid Zodiac sign. "
+
+
+def get_symbol_info(zodiac_sign):
+    """
+    Gets information about a Zodiac symbol.
+    :param zodiac_sign: The sign to get info about.
+    :return: A str of info about the input sign.
+    """
+    if zodiac_sign in zodiac_symbols:
+        return "SIGN: " + zodiac_sign + "\nSYMBOL: the " + zodiac_symbols[zodiac_sign]
+    else:
+        return "That is not a valid Zodiac sign."
+
+
+def get_element_info(zodiac_element):
+    """
+    Gets information about a Zodiac element.
+    :param zodiac_element: A Zodiac element to get info for.
+    :return: A str containing information about the Element associated with the input Zodiac sign.
+    """
+    if zodiac_element in zodiac_elements:
+        return format_section(zodiac_element, "*") + zodiac_element_descriptions[zodiac_element]
+    else:
+        return "That is not a valid Zodiac sign."
+
+
+def get_sign_for_date(date):
+    """
+    Given a date, return the Zodiac sign for this date.
+    :param date: A string of a date in the form "January 1"
+    :return: The sign for this date
+    """
+    try:
+        # split date
+        month = date.split(" ")[0]
+        day = int(date.split(" ")[1])
+
+        try:
+            month = month_to_int(month)
+        except Exception as e:
+            logging.debug("There was an issue when calling month_to_int in get_sign_for_date().")
+            logging.debug(e)
+            return "That is not a valid month."
+
+        try:
+            date_obj = datetime.date(2001, month, day)
+        except Exception as e:
+            return "This date is invalid because that month doesn't have that many days."
+
+        sign = get_sign(date_obj)
+
+        return "The sign for " + date_obj.strftime("%B %d") + " is " + sign
+    except Exception as e:
+        logging.debug("There was an issue with splitting the date in get_info_for_date()")
+        logging.debug(e)
+        return "That is not a valid date."
+
+
 def yield_dates_in_range(date1, date2):
     """
     Yields data objects within a range.
@@ -597,17 +602,66 @@ def diff_between_two_dates(starting_date, ending_date):
     return (years, months, days)
 
 
+def get_order_of_dict_by_size():
+    # TODO: Work on this so I can print stuff in the right order.
+    # Return an ordered list
+    pass
+
+
+def order_list_by_birthday(list_of_zodiac_people):
+    ordered_list = []
+    logging.debug("***UNFORMATTED LIST AT START: " + format_print_of_list_of_zodiac_people(list_of_zodiac_people))
+    for person in list_of_zodiac_people:
+        logging.debug("Inserting " + person.name + " with birthday " + str(person.birthday) + " into ordered_list")
+        if ordered_list == []:
+            ordered_list.insert(0, person)
+        else:
+            for count, current_ordered_person in enumerate(ordered_list):
+                if ordered_list[count].birthday.month == person.birthday.month:
+                    # Normal case for insertion
+                    if ordered_list[count].birthday.day > person.birthday.day:
+                        ordered_list.insert(count, person)
+                        break
+                if ordered_list[count].birthday.month - 1 == person.birthday.month:
+                    # e.g. I only have February birthdays then I encounter a January birthday (Aquarius)
+                    ordered_list.insert(count, person)
+                    break
+                if person.birthday.month == 12 and ordered_list[count].birthday.month == 1:
+                    # Handle December/January cases differently for Capricorns
+                    ordered_list.insert(count, person)
+                    break
+                if count == len(ordered_list) - 1:
+                    # Reached end of list, insert the new element at the end.
+                    ordered_list.insert(count + 1, person)
+                    break
+            logging.debug("Running list: " + format_print_of_list_of_zodiac_people(ordered_list))
+    return ordered_list
+
+
 def get_str_for_dict_of_lists(d):
+    """
+    Prints info about a dictionary of Zodiac people.
+    :param d: Dictionary in the form { Category: [ZodiacPerson1, ZodiacPerson2, ...] }
+    :return: A string with information about this dictionary
+    """
+    # TODO: Implement this using order_list_by_birthday() ?
     output = ""
     for key in d:
         output += "\n" + key + "(" + str(len(d[key])) + ", " + "%0.2f" % (100 * len(
             d[key]) / sum(len(x) for x in d.values())) + "%): "
-        for person in d[key]:
-            output += person.name + ", "
-        if not people_by_sign_dict[key] == []:
-            output = output[:-2]  # Remove the last comma
-    output += "\nTOTAL: " + str(sum(len(x) for x in d.values())) + "\n"
+        ordered_list = order_list_by_birthday(d[key])
+        output += format_print_of_list_of_zodiac_people(ordered_list)
+        output += "\nTOTAL: " + str(sum(len(x) for x in d.values())) + "\n"
 
+    return output
+
+
+def format_print_of_list_of_zodiac_people(ls):
+    output = ""
+    for person in ls:
+        output += person.name + " (" + person.birthday.strftime("%B %d") + "), "
+    if not ls == []:
+        output = output[:-2]  # Remove the last comma
     return output
 
 
