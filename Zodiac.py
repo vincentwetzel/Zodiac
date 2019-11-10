@@ -1,7 +1,7 @@
 import logging, sys
 
 logging.basicConfig(stream=sys.stderr,
-                    level=logging.DEBUG)  # use logging.DEBUG for testing, logging.CRITICAL for runtime
+                    level=logging.CRITICAL)  # use logging.DEBUG for testing, logging.CRITICAL for runtime
 # https://docs.python.org/3/library/logging.html#levels
 
 import csv
@@ -308,10 +308,9 @@ def main():
         elif user_input == 6:
             # 6. Look up an element.
             print(get_element_info(input(
-                "Enter a Zodiac sign and I will give you its element."
+                "Enter a Zodiac element and I will give you information about it."
                 "\nYour options are:"
-                "\nCapricorn, Aquarius, Pisces, Aries, Taurus, Gemini, "
-                "Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius: ")))
+                "\nAir, Fire, Earth, and Water: ")))
         elif user_input == 7:
             # 7. Look up a date.
             print(get_sign_for_date(
@@ -602,10 +601,14 @@ def diff_between_two_dates(starting_date, ending_date):
     return (years, months, days)
 
 
-def get_order_of_dict_by_size():
-    # TODO: Work on this so I can print stuff in the right order.
-    # Return an ordered list
-    pass
+def dict_keys_ordered_by_size_of_values_list(dict_to_order):
+    result = list()
+    for key in dict_to_order.keys():
+        for val in result:
+            if result == []:
+                result.insert(0, val)
+                break
+            # TODO: continue here...
 
 
 def order_list_by_birthday(list_of_zodiac_people):
@@ -644,7 +647,6 @@ def get_str_for_dict_of_lists(d):
     :param d: Dictionary in the form { Category: [ZodiacPerson1, ZodiacPerson2, ...] }
     :return: A string with information about this dictionary
     """
-    # TODO: Implement this using order_list_by_birthday() ?
     output = ""
     for key in d:
         output += "\n" + key + "(" + str(len(d[key])) + ", " + "%0.2f" % (100 * len(
