@@ -1,14 +1,17 @@
-import logging, sys
-
-logging.basicConfig(stream=sys.stderr,
-                    level=logging.CRITICAL)  # use logging.DEBUG for testing, logging.CRITICAL for runtime
-# https://docs.python.org/3/library/logging.html#levels
-
+import logging
+import sys
 import csv
 import datetime
 import calendar
 from collections import defaultdict
 import shutil
+
+# TODO: Create a web scraper to pull Zodac intimacy data from astrology-zodiac-signs.com
+# TODO: COnvert this to an OOP design
+
+# NOTE TO USER: use logging.DEBUG for testing, logging.CRITICAL for runtime
+logging.basicConfig(stream=sys.stderr,
+                    level=logging.CRITICAL)
 
 zodiac_sign_descriptions = {
     "Capricorn": "-Strengths: Responsible, disciplined, self-control, good managers"
@@ -149,23 +152,23 @@ zodiac_elements = {
 """{ Element: Zodiac Sign }"""
 
 zodiac_element_descriptions = {
-    "Water": "The Water Signs are: Cancer, Scorpio and Pisces."
+    "Water": "The Water Signs are Cancer, Scorpio and Pisces."
              "\nWater signs are exceptionally emotional and ultra-sensitive."
              "\nThey are highly intuitive and they can be as mysterious as the ocean itself."
              "\nWater signs love profound conversations and intimacy."
              "\nThey rarely do anything openly and are always there to support their loved ones.",
-    "Fire": "The Fire Signs are: Aries, Leo and Sagittarius."
+    "Fire": "The Fire Signs are Aries, Leo and Sagittarius."
             "\nFire signs tend to be passionate, dynamic, and temperamental."
             "\nThey get angry quickly, but they also forgive easily."
             "\nThey are adventurers with immense energy."
             "\nThey are physically very strong and are a source of inspiration for others."
             "\nFire signs are intelligent, self-aware, creative and idealistic people, always ready for action.",
-    "Earth": "The Earth Signs are: Taurus, Virgo and Capricorn."
+    "Earth": "The Earth Signs are Taurus, Virgo and Capricorn."
              "\nEarth signs are “grounded” and the ones that bring us down to earth."
              "\nThey are mostly conservative and realistic, but they can also be very emotional."
              "\nThey are connected to our material reality and can be turned to material goods."
              "\nThey are practical, loyal and stable and they stick by their people through hard times.",
-    "Air": "The Air Signs are: Gemini, Libra and Aquarius."
+    "Air": "The Air Signs are Gemini, Libra and Aquarius."
            "\nAir signs are rational, social, and love communication and relationships with other people."
            "\nThey are thinkers, friendly, intellectual, communicative and analytical."
            "\nThey love philosophical discussions, social gatherings and good books."
@@ -184,7 +187,8 @@ zodiac_qualities = {
 """{ Quality: Sign }"""
 
 zodiac_quality_descriptions = {
-    "Cardinal": "Cardinal Signs are the initiators of the zodiac."
+    "Cardinal": "The cardinal signs are Capricorn, Aries, Cancer, and Libra."
+                "\nCardinal Signs are the initiators of the zodiac."
                 "\nThey are also found at key jumping-off points on the chart wheel, specifically the Ascendant, Medium Coeli (M.C. or Midheaven), Descendant and Imum Coeli (I.C.)."
                 "\nIndividuals possessing a Cardinal Quality like to get things going."
                 "\nThey are active, quick and ambitious."
@@ -199,7 +203,8 @@ zodiac_quality_descriptions = {
                 "\n\nCardinal folks are clever and want to win."
                 "\nThey love to start things, and whether they finish them or not, there’s always a lot going on."
                 "\nNaysayers who find them to be too self-centered will simply have to watch (and marvel) as they speed by!",
-    "Mutable": "Mutable Signs know how to go with the flow."
+    "Mutable": "The mutable signs are Pisces, Gemini, Virgo, and Sagittarius."
+               "\nMutable Signs know how to go with the flow."
                "\nThey are adaptable and flexible and can change their form of expression to whatever a situation requires."
                "\nStanding their ground is of little import to Mutable folks."
                "\nThese people would much rather conform to the norm, so long as their doing so will help the greater good."
@@ -216,7 +221,8 @@ zodiac_quality_descriptions = {
                "\n\nThe beauty of mutability is that those possessing it are flexible, versatile and highly resourceful."
                "\nThese folks are quick to help others and are selfless in the process."
                "\nWhile they may occasionally stretch themselves to the breaking point, they know how to bounce back.",
-    "Fixed": "Fixed Signs understand that steadiness is the key."
+    "Fixed": "The fixed signs are Aquarius, Taurus, Leo, and Scorpio."
+             "\nFixed Signs understand that steadiness is the key."
              "\nThose influenced by this Quality are happy to forge ahead with their projects, calmly working away until they have achieved their objectives."
              "\nThis is no struggle for Fixed folks, rather it’s what makes them tick."
              "\nThese individuals are stable, determined and resolute."
@@ -268,7 +274,7 @@ people_by_sign_dict = defaultdict(list)
 
 def main():
     # Initialize people data
-    init_people_from_csv("people.csv")
+    init_people_from_csv("zodiac_people.csv")
 
     while True:
         user_input = get_int_input(
@@ -373,7 +379,7 @@ def add_new_person_to_zodiac_database():
     """
     # Create a backup of the current data
     now = datetime.datetime.now()
-    shutil.copyfile("people.csv", "people backup from " + now.strftime("%d-%m-%Y %H.%M.%S") + ".csv")
+    shutil.copyfile("zodiac_people.csv", "people backup from " + now.strftime("%d-%m-%Y %H.%M.%S") + ".csv")
 
     # Prepare current data IN ORDER
     people_in_order = x = [[] for i in range(13)]  # List of 13 lists, leave bucket 0 unused
@@ -524,6 +530,7 @@ def get_element_info(zodiac_element):
 
 
 def get_sign_for_date(date):
+    # TODO: Rename this function to be less similar to get_sign()
     """
     Given a date, return the Zodiac sign for this date.
     :param date: A string of a date in the form "January 1"
@@ -700,64 +707,60 @@ def get_sign(date_obj):
     """
     Takes an input date and returns the sign as a tuple of (sign, cusp).
     :param date: The date of the sign
-    :return: (sign, cusp) tuple. Cusp may be None.
+    :return: The sign, possibly as a "sign1/sign2" in the case of a cusp
     """
-    sign = None
-    cusp = None
 
     # non-cusp
     if (date_obj.month == 12 and date_obj.day >= 25) or (date_obj.month == 1 and date_obj.day <= 15):
-        sign = "Capricorn"
+        return "Capricorn"
     elif (date_obj.month == 1 and date_obj.day >= 16) and (date_obj.month == 1 and date_obj.day <= 23):
-        sign = "Capricorn/Aquarius"
+        return "Capricorn/Aquarius"
     elif (date_obj.month == 1 and date_obj.day >= 24) or (date_obj.month == 2 and date_obj.day <= 14):
-        sign = "Aquarius"
+        return "Aquarius"
     elif (date_obj.month == 2 and date_obj.day >= 15) and (date_obj.month == 2 and date_obj.day <= 21):
-        sign = "Aquarius/Pisces"
+        return "Aquarius/Pisces"
     elif (date_obj.month == 2 and date_obj.day >= 22) or (date_obj.month == 3 and date_obj.day <= 16):
-        sign = "Pisces"
+        return "Pisces"
     elif (date_obj.month == 3 and date_obj.day >= 17) and (date_obj.month == 3 and date_obj.day <= 23):
-        sign = "Pisces/Aries"
+        return "Pisces/Aries"
     elif (date_obj.month == 3 and date_obj.day >= 24) or (date_obj.month == 4 and date_obj.day <= 15):
-        sign = "Aries"
+        return "Aries"
     elif (date_obj.month == 4 and date_obj.day >= 16) and (date_obj.month == 4 and date_obj.day <= 22):
-        sign = "Aries/Taurus"
+        return "Aries/Taurus"
     elif (date_obj.month == 4 and date_obj.day >= 23) or (date_obj.month == 5 and date_obj.day <= 16):
-        sign = "Taurus"
+        return "Taurus"
     elif (date_obj.month == 5 and date_obj.day >= 17) and (date_obj.month == 5 and date_obj.day <= 23):
-        sign = "Taurus/Gemini"
+        return "Taurus/Gemini"
     elif (date_obj.month == 5 and date_obj.day >= 24) or (date_obj.month == 6 and date_obj.day <= 16):
-        sign = "Gemini"
+        return "Gemini"
     elif (date_obj.month == 6 and date_obj.day >= 17) and (date_obj.month == 6 and date_obj.day <= 23):
-        sign = "Gemini/Cancer"
+        return "Gemini/Cancer"
     elif (date_obj.month == 6 and date_obj.day >= 24) or (date_obj.month == 7 and date_obj.day <= 18):
-        sign = "Cancer"
+        return "Cancer"
     elif (date_obj.month == 7 and date_obj.day >= 19) and (date_obj.month == 7 and date_obj.day <= 25):
-        sign = "Cancer/Leo"
+        return "Cancer/Leo"
     elif (date_obj.month == 7 and date_obj.day >= 26) or (date_obj.month == 8 and date_obj.day <= 18):
-        sign = "Leo"
+        return "Leo"
     elif (date_obj.month == 8 and date_obj.day >= 19) and (date_obj.month == 8 and date_obj.day <= 25):
-        sign = "Leo/Virgo"
+        return "Leo/Virgo"
     elif (date_obj.month == 8 and date_obj.day >= 26) or (date_obj.month == 9 and date_obj.day <= 18):
-        sign = "Virgo"
+        return "Virgo"
     elif (date_obj.month == 9 and date_obj.day >= 19) and (date_obj.month == 9 and date_obj.day <= 25):
-        sign = "Virgo/Libra"
+        return "Virgo/Libra"
     elif (date_obj.month == 9 and date_obj.day >= 26) or (date_obj.month == 10 and date_obj.day <= 18):
-        sign = "Libra"
+        return "Libra"
     elif (date_obj.month == 10 and date_obj.day >= 19) and (date_obj.month == 10 and date_obj.day <= 25):
-        sign = "Libra/Scorpio"
+        return "Libra/Scorpio"
     elif (date_obj.month == 10 and date_obj.day >= 26) or (date_obj.month == 11 and date_obj.day <= 17):
-        sign = "Scorpio"
+        return "Scorpio"
     elif (date_obj.month == 11 and date_obj.day >= 18) and (date_obj.month == 11 and date_obj.day <= 24):
-        sign = "Scorpio/Sagittarius"
+        return "Scorpio/Sagittarius"
     elif (date_obj.month == 11 and date_obj.day >= 25) or (date_obj.month == 12 and date_obj.day <= 17):
-        sign = "Sagittarius"
+        return "Sagittarius"
     elif (date_obj.month == 12 and date_obj.day >= 18) and (date_obj.month == 12 and date_obj.day <= 24):
-        sign = "Sagittarius/Capricorn"
+        return "Sagittarius/Capricorn"
     else:
         raise Exception("No sign was assigned in get_sign()")
-
-    return sign
 
 
 def get_quality(sign):

@@ -32,7 +32,7 @@ Glenn Fontein,9,March,1,Pisces,Water,Mutable,soft switch,FALSE,TRUE,FALSE
 Mitt Romney,12,March,1,Pisces,Water,Mutable,soft switch,TRUE,FALSE,FALSE
 Dan Crenshaw,14,March,1,Pisces,Water,Mutable,soft switch,TRUE,FALSE,FALSE
 Caleb Gee,25,March,1,Aries,Fire,Cardinal,power top,FALSE,TRUE,FALSE
-Nancy Pelosi,26,March,1,Aries,Fire,Cardinal,power top,TRUE,FALSE,FALSE
+Nancy Pelosi,26,March,1940,Aries,Fire,Cardinal,power top,TRUE,FALSE,FALSE
 Jeff Burningham,29,March,1,Aries,Fire,Cardinal,power top,TRUE,FALSE,FALSE
 David Clark-Pingree,1,April,1,Aries,Fire,Cardinal,power top,TRUE,TRUE,FALSE
 Rachel Maddow,1,April,1,Aries,Fire,Cardinal,power top,TRUE,FALSE,FALSE
@@ -113,7 +113,7 @@ Brigit Devlin,19,August,1,Leo/Virgo,Fire/Earth,Fixed/Mutable,power top/power swi
 Shane Erickson,21,August,1,Leo/Virgo,Fire/Earth,Fixed/Mutable,power top/power switch,FALSE,TRUE,FALSE
 Idra,21,August,1,Leo/Virgo,Fire/Earth,Fixed/Mutable,power top/power switch,FALSE,FALSE,FALSE
 Johnny Rapid,24,August,1,Leo/Virgo,Fire/Earth,Fixed/Mutable,power top/power switch,FALSE,TRUE,FALSE
-Shane Hal,25,August,1,Leo/Virgo,Fire/Earth,Fixed/Mutable,power top/power switch,FALSE,TRUE,FALSE
+Shane Hall,25,August,1,Leo/Virgo,Fire/Earth,Fixed/Mutable,power top/power switch,FALSE,TRUE,FALSE
 Gracie Vaught,25,August,1,Leo/Virgo,Fire/Earth,Fixed/Mutable,power top/power switch,TRUE,FALSE,FALSE
 Haley Nieves,26,August,1,Virgo,Earth,Mutable,power switch,TRUE,FALSE,FALSE
 Chadwick Hamilton Fairbanks III,26,August,1,Virgo,Earth,Mutable,power switch,FALSE,FALSE,FALSE
@@ -140,7 +140,7 @@ Oliver Svejstrup Brynnum,30,September,1,Libra,Air,Cardinal,soft switch,FALSE,TRU
 Peewat Billy Chavanaprayoo,2,October,1,Libra,Air,Cardinal,soft switch,TRUE,FALSE,FALSE
 Grayson Massey,11,October,1,Libra,Air,Cardinal,soft switch,TRUE,TRUE,FALSE
 Catherine Wetzel,11,October,1,Libra,Air,Cardinal,soft switch,FALSE,FALSE,FALSE
-Chris Wallace,12,October,1,Libra,Air,Cardinal,soft switch,TRUE,FALSE,FALSE
+Chris Wallace,12,October,1947,Libra,Air,Cardinal,soft switch,TRUE,FALSE,FALSE
 Alexandria Ocassio-Cortez,13,October,1989,Libra,Air,Cardinal,soft switch,TRUE,FALSE,FALSE
 Adam Sauer,17,October,1,Libra,Air,Cardinal,soft switch,TRUE,TRUE,FALSE
 Michael Gofman,17,October,1,Libra,Air,Cardinal,soft switch,TRUE,FALSE,FALSE
@@ -237,7 +237,7 @@ Martin Van Buren,5,December,1782,Sagittarius,Fire,Mutable,soft top,TRUE,FALSE,TR
 Woodrow Wilson,28,December,1856,Capricorn,Earth,Cardinal,kinky top,TRUE,FALSE,TRUE
 Andrew Johnson,29,December,1808,Capricorn,Earth,Cardinal,kinky top,TRUE,FALSE,TRUE
 Hailey Ann LaBounty,6,October,1998,Libra,Air,Cardinal,soft switch,FALSE,FALSE,FALSE
-Frederick Douglass,14,February,1818,Aquarius,Air,Fixed,soft bottom,TRUE,TRUE,TRUE
+Frederick Douglass,14,February,1818,Aquarius,Air,Fixed,soft bottom,TRUE,FALSE,TRUE
 Alex Lange,3,March,2001,Pisces,Water,Mutable,soft switch,FALSE,TRUE,FALSE
 Cameron Dallas,8,September,1994,Virgo,Earth,Mutable,power switch,FALSE,TRUE,FALSE
 Chelsea Clinton,27,February,1980,Pisces,Water,Mutable,soft switch,TRUE,FALSE,FALSE
@@ -289,3 +289,111 @@ Aaron Bullen,2,June,1987,Gemini,Air,Mutable,kinky switch,TRUE,FALSE,FALSE
 Bobby Fischer,9,March,1943,Pisces,Water,Mutable,soft switch,FALSE,FALSE,FALSE
 Michelle Obama,17,January,1964,Capricorn/Aquarius,Earth/Air,Cardinal/Fixed,kinky top/soft bottom,TRUE,FALSE,FALSE
 Steven Crowder,7,July,1987,Cancer,Water,Cardinal,kinky bottom,TRUE,FALSE,FALSE
+Timo Zwiesigk,13,July,1995,Cancer,Water,Cardinal,kinky bottom,FALSE,TRUE,FALSE
+Will Witt,4,September,1996,Virgo,Earth,Mutable,power switch,TRUE,TRUE,FALSE
+Ryan Seacrest,24,December,1974,Sagittarius/Capricorn,Fire/Earth,Mutable/Cardinal,soft top/kinky top,FALSE,TRUE,FALSE
+Alex Trebek,22,July,1940,Cancer/Leo,Water/Fire,Cardinal/Fixed,kinky bottom/power top,FALSE,FALSE,FALSE
+John Roberts,27,January,1955,Aquarius,Air,Fixed,soft bottom,TRUE,FALSE,FALSE
+Clarence Thomas,23,June,1948,Gemini/Cancer,Air/Water,Mutable/Cardinal,kinky switch/kinky bottom,TRUE,FALSE,FALSE
+Ruth Bader Ginsburg,15,March,1933,Pisces,Water,Mutable,soft switch,TRUE,FALSE,FALSE
+Stephen Breyer,15,August,1938,Leo,Fire,Fixed,power top,TRUE,FALSE,FALSE
+Samuel Alito,1,April,1950,Aries,Fire,Cardinal,power top,TRUE,FALSE,FALSE
+Sonia Sotomayor,25,June,1954,Cancer,Water,Cardinal,kinky bottom,TRUE,FALSE,FALSE
+Elena Kagan,28,April,1960,Taurus,Earth,Fixed,power bottom,TRUE,FALSE,FALSE
+Neil Gorsuch,29,August,1967,Virgo,Earth,Mutable,power switch,TRUE,FALSE,FALSE
+Brett Kavanaugh,12,February,1965,Aquarius,Air,Fixed,soft bottom,TRUE,FALSE,FALSE
+Antonin Scalia,11,March,1936,Pisces,Water,Mutable,soft switch,TRUE,FALSE,FALSE
+Artem Jouthckov,20,May,1997,Taurus/Gemini,Earth/Air,Fixed/Mutable,power bottom/kinky switch,FALSE,TRUE,FALSE
+Joey Coleman,15,November,2003,Scorpio,Water,Fixed,kinky top,FALSE,FALSE,FALSE
+Adam Schiff,22,June,1960,Gemini/Cancer,Air/Water,Mutable/Cardinal,kinky switch/kinky bottom,TRUE,FALSE,FALSE
+RuPaul Andre Charles,17,November,1960,Scorpio,Water,Fixed,kinky top,TRUE,FALSE,FALSE
+Star Carter III,17,July,1993,Cancer,Water,Cardinal,kinky bottom,TRUE,FALSE,FALSE
+Cameron Chester,10,November,1994,Scorpio,Water,Fixed,kinky top,TRUE,FALSE,FALSE
+Trent Diesel,14,January,1984,Capricorn,Earth,Cardinal,kinky top,FALSE,TRUE,FALSE
+Andrew Garfield,20,August,1983,Leo/Virgo,Fire/Earth,Fixed/Mutable,power top/power switch,FALSE,TRUE,FALSE
+Michelle Visage,20,September,1968,Virgo/Libra,Earth/Air,Mutable/Cardinal,power switch/soft switch,FALSE,FALSE,FALSE
+Brandon Flynn,11,October,1993,Libra,Air,Cardinal,soft switch,FALSE,TRUE,FALSE
+Colton Haynes,13,July,1988,Cancer,Water,Cardinal,kinky bottom,TRUE,FALSE,FALSE
+Tyler Posey,18,October,1991,Libra,Air,Cardinal,soft switch,FALSE,TRUE,FALSE
+Tom Felton,20,September,1968,Virgo/Libra,Earth/Air,Mutable/Cardinal,power switch/soft switch,FALSE,TRUE,FALSE
+Dylan O'Brien,26,August,1991,Virgo,Earth,Mutable,power switch,FALSE,TRUE,FALSE
+Tom Daley,21,May,1994,Taurus/Gemini,Earth/Air,Fixed/Mutable,power bottom/kinky switch,FALSE,TRUE,FALSE
+Ann Coulter,8,December,1961,Sagittarius,Fire,Mutable,soft top,TRUE,TRUE,FALSE
+Tomi Lahren,11,August,1992,Leo,Fire,Fixed,power top,TRUE,TRUE,FALSE
+Michelle Malkin,20,October,1970,Libra/Scorpio,Air/Water,Cardinal/Fixed,soft switch/kinky top,TRUE,FALSE,FALSE
+Johnny Jez,17,March,1989,Pisces/Aries,Water/Fire,Mutable/Cardinal,soft switch/power top,FALSE,TRUE,FALSE
+Edgar Allen Poe,19,January,1809,Capricorn/Aquarius,Earth/Air,Cardinal/Fixed,kinky top/soft bottom,FALSE,FALSE,FALSE
+Jerris Heaton,19,November,1,Scorpio/Sagittarius,Water/Fire,Fixed/Mutable,kinky top/soft top,TRUE,FALSE,FALSE
+Penn Gillette,5,March,1955,Pisces,Water,Mutable,soft switch,FALSE,FALSE,FALSE
+Teller (magician),14,February,1948,Aquarius,Air,Fixed,soft bottom,FALSE,FALSE,FALSE
+Joy Behar,7,October,1942,Libra,Air,Cardinal,soft switch,TRUE,FALSE,FALSE
+Abby Huntsman,1,May,1986,Taurus,Earth,Fixed,power bottom,TRUE,FALSE,FALSE
+Sunny Hostin,20,October,1968,Libra/Scorpio,Air/Water,Cardinal/Fixed,soft switch/kinky top,TRUE,FALSE,FALSE
+Dave Rubin,26,June,1976,Cancer,Water,Cardinal,kinky bottom,TRUE,FALSE,FALSE
+Christopher Hitchens,13,April,1949,Aries,Fire,Cardinal,power top,TRUE,FALSE,FALSE
+Richard Dawkins,26,March,1941,Aries,Fire,Cardinal,power top,TRUE,FALSE,FALSE
+Sam Harris,9,April,1967,Aries,Fire,Cardinal,power top,TRUE,FALSE,FALSE
+Daniel Dennett,28,March,1942,Aries,Fire,Cardinal,power top,TRUE,FALSE,FALSE
+Jonce Croft,1,January,2002,Capricorn,Earth,Cardinal,kinky top,FALSE,TRUE,FALSE
+Ellen DeGeneres,26,January,1958,Aquarius,Air,Fixed,soft bottom,TRUE,FALSE,FALSE
+Steve Bannon,27,November,1953,Sagittarius,Fire,Mutable,soft top,TRUE,FALSE,FALSE
+Cal Hunter,11,June,1996,Gemini,Air,Mutable,kinky switch,TRUE,FALSE,FALSE
+Raheem Kassam,1,August,1986,Leo,Fire,Fixed,power top,TRUE,FALSE,FALSE
+Cenk Uyger,21,March,1970,Pisces/Aries,Water/Fire,Mutable/Cardinal,soft switch/power top,TRUE,FALSE,FALSE
+Kera Yates Birkeland,2,April,1,Aries,Fire,Cardinal,power top,TRUE,FALSE,FALSE
+Tina Cannon,3,March,1,Pisces,Water,Mutable,soft switch,TRUE,FALSE,FALSE
+Chris Null,7,February,1,Aquarius,Air,Fixed,soft bottom,TRUE,FALSE,FALSE
+Laurie Stringham,9,May,1,Taurus,Earth,Fixed,power bottom,TRUE,FALSE,FALSE
+Rylan Gurski,6,December,2000,Sagittarius,Fire,Mutable,soft top,FALSE,TRUE,FALSE
+James English,21,November,1997,Scorpio/Sagittarius,Water/Fire,Fixed/Mutable,kinky top/soft top,TRUE,TRUE,FALSE
+Mark Meuser,30,August,1,Virgo,Earth,Mutable,power switch,TRUE,FALSE,FALSE
+Chris Stewart,15,July,1960,Cancer,Water,Cardinal,kinky bottom,TRUE,FALSE,FALSE
+John Curtis,10,May,1060,Taurus,Earth,Fixed,power bottom,TRUE,FALSE,FALSE
+Robert Bishop,13,July,1951,Cancer,Water,Cardinal,kinky bottom,TRUE,FALSE,FALSE
+Gay Herber,7,May,1947,Taurus,Earth,Fixed,power bottom,TRUE,FALSE,FALSE
+Jon Huntsman Jr.,26,March,1960,Aries,Fire,Cardinal,power top,TRUE,FALSE,FALSE
+Nikki Haley,20,January,1972,Capricorn/Aquarius,Earth/Air,Cardinal/Fixed,kinky top/soft bottom,TRUE,FALSE,FALSE
+Spencer Cox,11,July,1975,Cancer,Water,Cardinal,kinky bottom,TRUE,FALSE,FALSE
+Aimee Winder Newton,10,May,1974,Taurus,Earth,Fixed,power bottom,TRUE,FALSE,FALSE
+Greg Hughes,13,October,1969,Libra,Air,Cardinal,soft switch,TRUE,FALSE,FALSE
+Andrew Nieto,26,September,1983,Libra,Air,Cardinal,soft switch,TRUE,FALSE,FALSE
+Mark Garmus,8,December,1954,Sagittarius,Fire,Mutable,soft top,FALSE,FALSE,FALSE
+Josh Thifault,12,April,1993,Aries,Fire,Cardinal,power top,TRUE,TRUE,FALSE
+Kevin Hart,6,July,1979,Cancer,Water,Cardinal,kinky bottom,FALSE,FALSE,FALSE
+Boris Johnson,19,June,1964,Gemini/Cancer,Air/Water,Mutable/Cardinal,kinky switch/kinky bottom,TRUE,FALSE,FALSE
+Thomas Sangster,16,May,1990,Taurus,Earth,Fixed,power bottom,FALSE,TRUE,FALSE
+Frank Luntz,23,February,1962,Pisces,Water,Mutable,soft switch,TRUE,FALSE,FALSE
+Laura Ingraham,19,June,1963,Gemini/Cancer,Air/Water,Mutable/Cardinal,kinky switch/kinky bottom,TRUE,FALSE,FALSE
+Joe Scarborough,9,April,1963,Aries,Fire,Cardinal,power top,TRUE,FALSE,FALSE
+Karl Rove,25,December,1950,Capricorn,Earth,Cardinal,kinky top,TRUE,FALSE,FALSE
+Dick Cheney,30,January,1941,Aquarius,Air,Fixed,soft bottom,TRUE,FALSE,FALSE
+Iliana Clift,1,May,1,Taurus,Earth,Fixed,power bottom,TRUE,FALSE,FALSE
+Blake Mitchell,14,August,1994,Leo,Fire,Fixed,power top,TRUE,FALSE,FALSE
+Ryan Bent,23,February,1,Pisces,Water,Mutable,soft switch,TRUE,FALSE,FALSE
+Jimmy Carr,15,September,1972,Virgo,Earth,Mutable,power switch,FALSE,FALSE,FALSE
+Jake Ummel,1,February,1,Aquarius,Air,Fixed,soft bottom,TRUE,FALSE,FALSE
+Shane Siwik,24,September,1,Virgo/Libra,Earth/Air,Mutable/Cardinal,power switch/soft switch,TRUE,FALSE,FALSE
+Becky Pirente,5,July,1,Cancer,Water,Cardinal,kinky bottom,TRUE,FALSE,FALSE
+Clarisse Lopes Offen,30,May,1,Gemini,Air,Mutable,kinky switch,TRUE,FALSE,FALSE
+Casey Voeks,18,December,1,Sagittarius/Capricorn,Fire/Earth,Mutable/Cardinal,soft top/kinky top,TRUE,FALSE,FALSE
+Christian Lundgren,23,August,1995,Leo/Virgo,Fire/Earth,Fixed/Mutable,power top/power switch,FALSE,TRUE,FALSE
+Kris Blent,8,December,1993,Sagittarius,Fire,Mutable,soft top,FALSE,FALSE,FALSE
+Chris Jansen,6,June,1993,Gemini,Air,Mutable,kinky switch,FALSE,TRUE,FALSE
+Phillip Aubrey,20,March,1984,Pisces/Aries,Water/Fire,Mutable/Cardinal,soft switch/power top,FALSE,TRUE,FALSE
+Markus Dupree,31,May,1988,Gemini,Air,Mutable,kinky switch,FALSE,TRUE,FALSE
+Jessie Montgomery,28,August,1993,Virgo,Earth,Mutable,power switch,FALSE,TRUE,FALSE
+Malea (Hannah) Coleman,12,April,1,Aries,Fire,Cardinal,power top,TRUE,FALSE,FALSE
+Johnny Bravo (Johnny Stone),31,October,1997,Scorpio,Water,Fixed,kinky top,FALSE,TRUE,FALSE
+Joseph Goebbels,29,October,1997,Scorpio,Water,Fixed,kinky top,FALSE,TRUE,FALSE
+Kathleen Anderson,16,September,1967,Virgo,Earth,Mutable,power switch,TRUE,FALSE,TRUE
+John Bolton,20,November,1948,Scorpio/Sagittarius,Water/Fire,Fixed/Mutable,kinky top/soft top,TRUE,FALSE,FALSE
+Jason Garshfield,8,January,1994,Capricorn,Earth,Cardinal,kinky top,TRUE,FALSE,FALSE
+Mike Lee,4,June,1971,Gemini,Air,Mutable,kinky switch,TRUE,FALSE,FALSE
+Thomas Wright,29,August,1,Virgo,Earth,Mutable,power switch,TRUE,FALSE,FALSE
+Nicholas Francois,5,February,1996,Aquarius,Air,Fixed,soft bottom,TRUE,FALSE,FALSE
+Christopher Gilbertson,24,February,1,Pisces,Water,Mutable,soft switch,TRUE,FALSE,FALSE
+Jared Cahoon,8,April,1,Aries,Fire,Cardinal,power top,TRUE,FALSE,FALSE
+Heidi Balderee,27,May,1,Gemini,Air,Mutable,kinky switch,TRUE,FALSE,FALSE
+Constantine Qu,2,April,1,Aries,Fire,Cardinal,power top,TRUE,FALSE,FALSE
+Ariana Rowlands,13,November,1994,Scorpio,Water,Fixed,kinky top,TRUE,FALSE,FALSE
+Andrew Braun,22,January,1,Capricorn/Aquarius,Earth/Air,Cardinal/Fixed,kinky top/soft bottom,FALSE,TRUE,FALSE
