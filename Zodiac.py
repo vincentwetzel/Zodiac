@@ -1,10 +1,11 @@
 import logging
 import sys
-import csv
+import pandas
 import datetime
 import calendar
 from collections import defaultdict
 import shutil
+import os
 
 # TODO: Create a web scraper to pull Zodac intimacy data from astrology-zodiac-signs.com
 # TODO: COnvert this to an OOP design
@@ -274,7 +275,7 @@ people_by_sign_dict = defaultdict(list)
 
 def main():
     # Initialize people data
-    init_people_from_csv("zodiac_people.csv")
+    init_people_database(os.path.realpath("E:\Google Drive (vincentwetzel3@gmail.com)\zodiac\zodiac_people.xlsx"))
 
     while True:
         user_input = get_int_input(
@@ -333,43 +334,41 @@ def main():
     # --- Script End ---
 
 
-def init_people_from_csv(csv_file):
+def init_people_database(excel_file):
     """
     Initializes Zodiac data from a CSV file.
     :return: None
     """
     global people_by_sign_dict
-    with open(csv_file, 'r', newline='') as f:
-        reader = csv.DictReader(f)
-        # fieldnames_for_csv = next(reader)  # Skip over headers
-        for row in reader:
-            person = ZodiacPerson(row["Name"],
-                                  datetime.date(int(row["Year"]),
-                                                month_to_int(row["Month"]),
-                                                int(row["Day"])),
-                                  row["Political"] in ["True", "TRUE"],
-                                  row["Hottie"] in ["True", "TRUE"],
-                                  row["President"] in ["True", "TRUE"]
-                                  )
-            people_by_sign_dict[row["Sign"]].append(person)
+    df = pandas.read_excel(excel_file)
+    for idx, row in df.iterrows():
+        person = ZodiacPerson(row["Name"],
+                              datetime.date(int(row["Year"]),
+                                            month_to_int(row["Month"]),
+                                            int(row["Day"])),
+                              row["Political"] in ["True", "TRUE"],
+                              row["Hottie"] in ["True", "TRUE"],
+                              row["President"] in ["True", "TRUE"]
+                              )
+        people_by_sign_dict[row["Sign"]].append(person)
 
-            # Verify that the original data which is being read in from the file is correct
-            if not (row["Sign"] == person.sign):
-                raise Exception(
-                    "Person: " + person.name + " has caused an error during initialization. Their sign in the database is: " +
-                    row["Sign"] + " whereas it should be: " + person.sign)
-            if not row["Element"] == person.element:
-                raise Exception(
-                    "Person: " + person.name + " has caused an error during initialization. Their element in the database is: " +
-                    row["Element"] + " whereas it should be: " + person.element)
-            if not row["Quality"] == person.quality:
-                raise Exception(
-                    "Person: " + person.name + " has caused an error during initialization. Their element in the database is: " +
-                    row["Quality"] + " whereas it should be: " + person.quality)
-            if not row["Gay Position"] == person.gay_position:
-                raise Exception(
-                    "Person: " + person.name + " has caused an error during initialization. Their element in the database is: " +
-                    row["Gay Position"] + " whereas it sho`uld be: " + person.gay_position)
+        # Verify that the original data which is being read in from the file is correct
+        if not (row["Sign"] == person.sign):
+            raise Exception(
+                "Person: " + person.name + " has caused an error during initialization. Their sign in the database is: " +
+                row["Sign"] + " whereas it should be: " + person.sign)
+        if not row["Element"] == person.element:
+            raise Exception(
+                "Person: " + person.name + " has caused an error during initialization. Their element in the database is: " +
+                row["Element"] + " whereas it should be: " + person.element)
+        if not row["Quality"] == person.quality:
+            raise Exception(
+                "Person: " + person.name + " has caused an error during initialization. Their element in the database is: " +
+                row["Quality"] + " whereas it should be: " + person.quality)
+        if not row["Gay Position"] == person.gay_position:
+            raise Exception(
+                "Person: " + person.name + " has caused an error during initialization. Their element in the database is: " +
+                row["Gay Position"] + " whereas it sho`uld be: " + person.gay_position)
 
 
 def add_new_person_to_zodiac_database():
