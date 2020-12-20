@@ -1,14 +1,14 @@
-from Zodiac import Zodiac
+from ZodiacInfo import ZodiacInfo
 
 
 class ZodiacPerson:
     """
-    A class to hold data about an individual and their Zodiac info.
+    A class to hold data about an individual and their ZodiacInfo info.
     """
 
     def __init__(self, name, birthday_date, political=False, hottie=False, president=False):
         """
-        Initializes a Zodiac Object.
+        Initializes a ZodiacInfo Object.
         :param name: The name of the person.
         :param birthday_date: Their birthday as a Date Object.
         :param political: Whether or not this person is politically involved.
@@ -21,8 +21,8 @@ class ZodiacPerson:
         self.political = bool(political)
         self.hottie = bool(hottie)
         self.president = bool(president)
-        self.sign = Zodiac.get_sign_for_date_obj(self.birthday)
-        self.symbol = Zodiac.zodiac_symbols[self.sign]
-        self.element = Zodiac.get_element(self.sign)
-        self.quality = Zodiac.get_quality(self.sign)
-        self.gay_position = Zodiac.zodiac_gay_position[self.sign]
+        self.sign = ZodiacInfo.get_sign_for_date_obj(self.birthday)
+        self.symbol = ZodiacInfo.zodiac_symbols[self.sign]
+        self.element = ZodiacInfo.get_element(self.sign)
+        self.quality = ZodiacInfo.get_quality(self.sign)
+        self.gay_position = ZodiacInfo.zodiac_sex_position[self.sign]
